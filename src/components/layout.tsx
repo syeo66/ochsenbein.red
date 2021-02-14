@@ -5,14 +5,29 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Header from './header'
+import './layout.css'
+import background from '../images/redbackground.jpg'
 
-import Header from "./header"
-import "./layout.css"
+const Page = styled.div`
+  min-height: 100vh;
+  background-color: white;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url(${background});
+  background-size: cover;
+  background-position: 90% 0;
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)), url(${background});
+    background-position: 100% 0;
+  }
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+`
 
-const Layout = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,7 +39,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <Page>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -39,12 +54,10 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          © {new Date().getFullYear()} Red Ochsenbein
         </footer>
       </div>
-    </>
+    </Page>
   )
 }
 
