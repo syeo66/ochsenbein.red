@@ -11,10 +11,21 @@ const Canvas = styled.canvas`
   height: 100%;
 `
 
-let posX = 0
-let posY = 0
-let vX = 300
-let vY = 300
+interface Ball {
+  posX: number
+  posY: number
+  vX: number
+  vY: number
+  mass: number
+}
+let balls: Ball[] = [...Array(50)].map(() => ({
+  posX: Math.random() * window.innerWidth,
+  posY: Math.random() * window.innerHeight,
+  vX: Math.random() * 100,
+  vY: Math.random() * 100,
+  mass: Math.random() * 20,
+}))
+
 let isRunning = false
 
 const AnimationTest = () => {
@@ -26,20 +37,24 @@ const AnimationTest = () => {
     }
     const w = canvas.current?.width || 100
     const h = canvas.current?.height || 100
-    posX += vX * passed
-    posY += vY * passed
-    if (posX >= w || posX <= 0) {
-      vX = -vX
-    }
-    if (posY >= h || posY <= 0) {
-      vY = -vY
-    }
-    if (posX > w) {
-      posX = w
-    }
-    if (posY > h) {
-      posY = h
-    }
+
+    balls = balls.map(({ posX, posY, vX, vY, mass }) => {
+      posX += vX * passed
+      posY += vY * passed
+      if (posX + mass >= w || posX - mass <= 0) {
+        vX = -vX
+      }
+      if (posY + mass >= h || posY - mass <= 0) {
+        vY = -vY
+      }
+      if (posX + mass > w) {
+        posX = w - mass
+      }
+      if (posY + mass > h) {
+        posY = h - mass
+      }
+      return { posX, posY, vX, vY, mass }
+    })
   }, [])
 
   const draw = useCallback(() => {
@@ -50,12 +65,14 @@ const AnimationTest = () => {
 
     ctx.clearRect(0, 0, canvas?.current?.width || 100, canvas?.current?.height || 100)
 
-    ctx.fillStyle = 'rgba(0,0,0,0.2)'
-    ctx.strokeStyle = 'rgba(0,0,0,0.2)'
+    ctx.fillStyle = 'rgba(0,0,0,0.05)'
+    ctx.strokeStyle = 'rgba(0,0,0,0.05)'
 
-    ctx.beginPath()
-    ctx.ellipse(posX, posY, 10, 10, 0, 0, 2 * Math.PI)
-    ctx.fill()
+    balls.forEach(({ posX, posY, mass }) => {
+      ctx.beginPath()
+      ctx.ellipse(posX, posY, mass, mass, 0, 0, 2 * Math.PI)
+      ctx.fill()
+    })
   }, [])
 
   const loop = useCallback(
