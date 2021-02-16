@@ -21,8 +21,8 @@ interface Ball {
 let balls: Ball[] = [...Array(50)].map(() => ({
   posX: Math.random() * window.innerWidth,
   posY: Math.random() * window.innerHeight,
-  vX: Math.random() * 100,
-  vY: Math.random() * 100,
+  vX: Math.random() * 200 - 100,
+  vY: Math.random() * 200 - 100,
   mass: Math.random() * 20,
 }))
 
@@ -52,6 +52,12 @@ const AnimationTest = () => {
       }
       if (posY + mass > h) {
         posY = h - mass
+      }
+      if (posX - mass < 0) {
+        posX = mass
+      }
+      if (posY - mass < 0) {
+        posY = mass
       }
       return { posX, posY, vX, vY, mass }
     })
