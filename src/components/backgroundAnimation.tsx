@@ -49,8 +49,12 @@ interface UpdateInput {
 type UpdateFunction = (input: UpdateInput) => Ball[]
 
 const update: UpdateFunction = ({ balls, passed, width, height }) => {
-  const b = updatePositionVectors({ balls, passed, width, height })
-  return updateVelocityVectors({ balls: b, passed, width, height })
+  return updatePositionVectors({
+    balls: updateVelocityVectors({ balls, passed, width, height }),
+    passed,
+    width,
+    height,
+  })
 }
 
 const updateVelocityVectors: UpdateFunction = ({ balls, passed, width, height }) => {
