@@ -15,16 +15,26 @@ const Canvas = styled.canvas`
 interface Ball {
   posX: number
   posY: number
+  posZ: number
   vX: number
   vY: number
+  vZ: number
+  aX: number
+  aY: number
+  aZ: number
   mass: number
 }
 
 let balls: Ball[] = [...Array(50)].map(() => ({
   posX: Math.random() * window.innerWidth,
   posY: Math.random() * window.innerHeight,
+  posZ: Math.random() * 1000,
   vX: Math.random() * 200 - 100,
   vY: Math.random() * 200 - 100,
+  vZ: Math.random() * 200 - 100,
+  aX: 0,
+  aY: 150,
+  aZ: 0,
   mass: Math.random() * 20,
 }))
 
@@ -39,20 +49,40 @@ interface UpdateInput {
 type UpdateFunction = (input: UpdateInput) => Ball[]
 
 const update: UpdateFunction = ({ balls, passed, width, height }) => {
+  const b = updatePositionVectors({ balls, passed, width, height })
+  return updateVelocityVectors({ balls: b, passed, width, height })
+}
+
+const updateVelocityVectors: UpdateFunction = ({ balls, passed, width, height }) => {
+  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }) => {
+    vX += aX * passed
+    vY += aY * passed
+    vZ += aZ * passed
+
+    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
+  })
+}
+
+const updatePositionVectors: UpdateFunction = ({ balls, passed, width, height }) => {
   if (!passed) {
     return balls
   }
   const w = width || 100
   const h = height || 100
 
-  return balls.map(({ posX, posY, vX, vY, mass }) => {
+  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }) => {
     posX += vX * passed
     posY += vY * passed
+    posZ += vZ * passed
+
     if (posX + mass >= w || posX - mass <= 0) {
       vX = -vX
     }
     if (posY + mass >= h || posY - mass <= 0) {
       vY = -vY
+    }
+    if (posZ + mass >= 2000 || posZ - mass <= 0) {
+      vZ = -vZ
     }
     if (posX + mass > w) {
       posX = w - mass
@@ -66,7 +96,7 @@ const update: UpdateFunction = ({ balls, passed, width, height }) => {
     if (posY - mass < 0) {
       posY = mass
     }
-    return { posX, posY, vX, vY, mass }
+    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
   })
 }
 
@@ -90,9 +120,10 @@ const draw: DrawFunction = ({ canvas, balls }) => {
   ctx.fillStyle = 'rgba(0,0,0,0.05)'
   ctx.strokeStyle = 'rgba(0,0,0,0.05)'
 
-  balls.forEach(({ posX, posY, mass }) => {
+  balls.forEach(({ posX, posY, posZ, mass }) => {
     ctx.beginPath()
-    ctx.ellipse(posX, posY, mass, mass, 0, 0, 2 * Math.PI)
+    const radius = Math.max(1, mass * ((2000 - posZ) / 2000))
+    ctx.ellipse(posX, posY, radius, radius, 0, 0, 2 * Math.PI)
     ctx.fill()
   })
 }
