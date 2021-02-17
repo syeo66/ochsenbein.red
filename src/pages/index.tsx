@@ -3,12 +3,12 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import AnimationTest from '../components/animationTest'
+import BackgroundAnimation from '../components/backgroundAnimation'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <AnimationTest />
+    <BackgroundAnimation />
     <h1>Hi people</h1>
     <p>Welcome to my realm.</p>
     <Link to="/page-2/">Go to page 2</Link> <br />
