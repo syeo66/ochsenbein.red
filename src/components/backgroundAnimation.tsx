@@ -25,17 +25,17 @@ interface Ball {
   mass: number
 }
 
-let balls: Ball[] = [...Array(50)].map(() => ({
-  posX: Math.random() * window.innerWidth,
-  posY: Math.random() * window.innerHeight,
-  posZ: Math.random() * 1000,
-  vX: Math.random() * 200 - 100,
-  vY: Math.random() * 200 - 100,
-  vZ: Math.random() * 200 - 100,
+let balls: Ball[] = [...Array(200)].map(() => ({
+  posX: (Math.random() * window.innerWidth) / 0.1,
+  posY: (Math.random() * window.innerHeight) / 0.1,
+  posZ: (Math.random() * window.innerWidth) / 0.1,
+  vX: Math.random() * 400 - 200,
+  vY: Math.random() * 400 - 200,
+  vZ: Math.random() * 400 - 200,
   aX: 0,
-  aY: 150,
+  aY: 0,
   aZ: 0,
-  mass: Math.random() * 20,
+  mass: Math.random() * 600,
 }))
 
 let isRunning = false
@@ -50,10 +50,38 @@ type UpdateFunction = (input: UpdateInput) => Ball[]
 
 const update: UpdateFunction = ({ balls, passed, width, height }) => {
   return updatePositionVectors({
-    balls: updateVelocityVectors({ balls, passed, width, height }),
+    balls: updateVelocityVectors({
+      balls: updateAccelerationVectors({ balls, passed, width, height }),
+      width,
+      height,
+      passed,
+    }),
     passed,
     width,
     height,
+  })
+}
+
+const updateAccelerationVectors: UpdateFunction = ({ balls, passed }) => {
+  const g = 40
+  const softeningConstant = 0.15
+  return balls.map((ball) => {
+    const { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass } = ball
+    let [naX, naY, naZ] = [aX, aY, aZ]
+    balls.forEach((ball2) => {
+      if (ball != ball2) {
+        const dx = ball2.posX - posX
+        const dy = ball2.posY - posY
+        const dz = ball2.posZ - posZ
+
+        const distSq = dx * dx + dy * dy + dz * dz
+        const f = (g * ball2.mass) / (distSq * Math.sqrt(distSq + softeningConstant))
+        naX += dx * f * passed
+        naY += dy * f * passed
+        naZ += dz * f * passed
+      }
+    })
+    return { posX, posY, posZ, vX, vY, vZ, aX: naX, aY: naY, aZ: naZ, mass }
   })
 }
 
@@ -71,35 +99,25 @@ const updatePositionVectors: UpdateFunction = ({ balls, passed, width, height })
   if (!passed) {
     return balls
   }
-  const w = width || 100
-  const h = height || 100
+
+  const [x, y, z] = balls.reduce(
+    (acc, ball) => {
+      const [x, y, z] = acc
+      return [x + ball.posX, y + ball.posY, z + ball.posZ]
+    },
+    [0, 0, 0]
+  )
+  const [cx, cy, cz] = [x / balls.length, y / balls.length, z / balls.length]
 
   return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }) => {
     posX += vX * passed
     posY += vY * passed
     posZ += vZ * passed
 
-    if (posX + mass >= w || posX - mass <= 0) {
-      vX = -vX
-    }
-    if (posY + mass >= h || posY - mass <= 0) {
-      vY = -vY
-    }
-    if (posZ + mass >= 2000 || posZ - mass <= 0) {
-      vZ = -vZ
-    }
-    if (posX + mass > w) {
-      posX = w - mass
-    }
-    if (posY + mass > h) {
-      posY = h - mass
-    }
-    if (posX - mass < 0) {
-      posX = mass
-    }
-    if (posY - mass < 0) {
-      posY = mass
-    }
+    posX += -cx + (window.innerWidth * 0.5) / 0.2
+    posY += -cy + (window.innerHeight * 0.5) / 0.2
+    posZ += -cz
+
     return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
   })
 }
@@ -124,10 +142,10 @@ const draw: DrawFunction = ({ canvas, balls }) => {
   ctx.fillStyle = 'rgba(0,0,0,0.05)'
   ctx.strokeStyle = 'rgba(0,0,0,0.05)'
 
-  balls.forEach(({ posX, posY, posZ, mass }) => {
+  balls.forEach(({ posX, posY, posZ, mass }, i) => {
     ctx.beginPath()
-    const radius = Math.max(1, mass * ((2000 - posZ) / 2000))
-    ctx.ellipse(posX, posY, radius, radius, 0, 0, 2 * Math.PI)
+    const radius = Math.max(3, Math.sqrt(mass) * 0.5)
+    ctx.ellipse(posX * 0.2, posY * 0.2, radius, radius, 0, 0, 2 * Math.PI)
     ctx.fill()
   })
 }
