@@ -145,7 +145,7 @@ const draw: DrawFunction = ({ canvas, balls }) => {
   balls.forEach(({ posX, posY, posZ, mass }, i) => {
     ctx.beginPath()
     const radius = Math.max(3, Math.sqrt(mass) * 0.5)
-    ctx.ellipse(posX * 0.2, posY * 0.2, radius, radius, 0, 0, 2 * Math.PI)
+    ctx.ellipse(posX * 0.2, posY * 0.1, radius * 2, radius * 2, 0, 0, 2 * Math.PI)
     ctx.fill()
   })
 }
