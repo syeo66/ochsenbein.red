@@ -25,17 +25,17 @@ interface Ball {
   mass: number
 }
 
-let balls: Ball[] = [...Array(200)].map(() => ({
-  posX: (Math.random() * window.innerWidth) / 0.1,
-  posY: (Math.random() * window.innerHeight) / 0.1,
-  posZ: (Math.random() * window.innerWidth) / 0.1,
-  vX: Math.random() * 400 - 200,
-  vY: Math.random() * 400 - 200,
-  vZ: Math.random() * 400 - 200,
+let balls: Ball[] = [...Array(100)].map(() => ({
+  posX: Math.random() * window.innerWidth,
+  posY: Math.random() * window.innerHeight,
+  posZ: Math.random() * window.innerWidth,
+  vX: Math.random() * 50 - 25,
+  vY: Math.random() * 50 - 25,
+  vZ: 0,
   aX: 0,
   aY: 0,
   aZ: 0,
-  mass: Math.random() * 600,
+  mass: Math.random() * 1200,
 }))
 
 let isRunning = false
@@ -63,25 +63,9 @@ const update: UpdateFunction = ({ balls, passed, width, height }) => {
 }
 
 const updateAccelerationVectors: UpdateFunction = ({ balls, passed }) => {
-  const g = 40
-  const softeningConstant = 0.15
   return balls.map((ball) => {
     const { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass } = ball
-    let [naX, naY, naZ] = [aX, aY, aZ]
-    balls.forEach((ball2) => {
-      if (ball != ball2) {
-        const dx = ball2.posX - posX
-        const dy = ball2.posY - posY
-        const dz = ball2.posZ - posZ
-
-        const distSq = dx * dx + dy * dy + dz * dz
-        const f = (g * ball2.mass) / (distSq * Math.sqrt(distSq + softeningConstant))
-        naX += dx * f * passed
-        naY += dy * f * passed
-        naZ += dz * f * passed
-      }
-    })
-    return { posX, posY, posZ, vX, vY, vZ, aX: naX, aY: naY, aZ: naZ, mass }
+    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
   })
 }
 
@@ -90,6 +74,26 @@ const updateVelocityVectors: UpdateFunction = ({ balls, passed, width, height })
     vX += aX * passed
     vY += aY * passed
     vZ += aZ * passed
+
+    if (posX >= window.innerWidth || posX <= 0) {
+      vX = -vX
+    }
+    if (posY >= window.innerHeight || posY <= 0) {
+      vY = -vY
+    }
+    if (posX < 0) {
+      posX = 1
+    }
+    if (posY < 0) {
+      posY = 1
+    }
+
+    if (posX > window.innerWidth) {
+      posX = window.innerWidth - 1
+    }
+    if (posY > window.innerHeight) {
+      posY = window.innerHeight - 1
+    }
 
     return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
   })
@@ -114,8 +118,8 @@ const updatePositionVectors: UpdateFunction = ({ balls, passed, width, height })
     posY += vY * passed
     posZ += vZ * passed
 
-    posX += -cx + (window.innerWidth * 0.5) / 0.2
-    posY += -cy + (window.innerHeight * 0.5) / 0.2
+    posX += -cx + window.innerWidth / 2
+    posY += -cy + window.innerHeight / 2
     posZ += -cz
 
     return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
@@ -139,13 +143,13 @@ const draw: DrawFunction = ({ canvas, balls }) => {
 
   ctx.clearRect(0, 0, canvas.width || 100, canvas.height || 100)
 
-  ctx.fillStyle = 'rgba(0,0,0,0.05)'
-  ctx.strokeStyle = 'rgba(0,0,0,0.05)'
+  ctx.fillStyle = 'rgba(0,0,0,0.02)'
+  ctx.strokeStyle = 'rgba(0,0,0,0.02)'
 
   balls.forEach(({ posX, posY, posZ, mass }, i) => {
     ctx.beginPath()
     const radius = Math.max(3, Math.sqrt(mass) * 0.5)
-    ctx.ellipse(posX * 0.2, posY * 0.1, radius * 2, radius * 2, 0, 0, 2 * Math.PI)
+    ctx.ellipse(posX, posY, radius * 2, radius * 2, 0, 0, 2 * Math.PI)
     ctx.fill()
   })
 }
