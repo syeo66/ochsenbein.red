@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `3.45rem 1.0875rem 1.45rem`,
       }}
     >
       <h1 style={{ margin: 0 }}>
