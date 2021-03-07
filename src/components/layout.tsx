@@ -13,6 +13,7 @@ import Header from './header'
 import './layout.css'
 import Navigation from './navigation'
 import background from '../images/redbackground.jpg'
+import BackgroundAnimation from './backgroundAnimation'
 
 const Page = styled.div`
   min-height: 100vh;
@@ -61,6 +62,7 @@ const Layout: React.FC = ({ children }) => {
           </footer>
         </div>
       </Page>
+      <BackgroundAnimation />
     </>
   )
 }

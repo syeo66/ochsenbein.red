@@ -1,4 +1,3 @@
-import { bool } from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
@@ -11,6 +10,7 @@ const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
   pointer-events: none;
+  filter: blur(15px);
 `
 
 interface Ball {
@@ -24,9 +24,10 @@ interface Ball {
   aY: number
   aZ: number
   mass: number
+  color: string
 }
 
-let balls: Ball[] = [...Array(100)].map(() => ({
+let balls: Ball[] = [...Array(50)].map(() => ({
   posX: Math.random() * window.innerWidth,
   posY: Math.random() * window.innerHeight,
   posZ: Math.random() * window.innerWidth,
@@ -36,10 +37,9 @@ let balls: Ball[] = [...Array(100)].map(() => ({
   aX: 0,
   aY: 0,
   aZ: 0,
-  mass: Math.random() * 1200,
+  mass: Math.random() * 6800,
+  color: `rgba(${Math.random() * 255},${Math.random() * 20},${Math.random() * 128},0.1)`,
 }))
-
-let isRunning = false
 
 interface UpdateInput {
   passed: number
@@ -64,14 +64,11 @@ const update: UpdateFunction = ({ balls, passed, width, height }) => {
 }
 
 const updateAccelerationVectors: UpdateFunction = ({ balls, passed }) => {
-  return balls.map((ball) => {
-    const { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass } = ball
-    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
-  })
+  return balls.map((ball) => ball)
 }
 
-const updateVelocityVectors: UpdateFunction = ({ balls, passed, width, height }) => {
-  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }) => {
+const updateVelocityVectors: UpdateFunction = ({ balls, passed }) => {
+  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass, color }) => {
     vX += aX * passed
     vY += aY * passed
     vZ += aZ * passed
@@ -96,7 +93,7 @@ const updateVelocityVectors: UpdateFunction = ({ balls, passed, width, height })
       posY = window.innerHeight - 1
     }
 
-    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
+    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass, color }
   })
 }
 
@@ -114,7 +111,7 @@ const updatePositionVectors: UpdateFunction = ({ balls, passed, width, height })
   )
   const [cx, cy, cz] = [x / balls.length, y / balls.length, z / balls.length]
 
-  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }) => {
+  return balls.map(({ posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass, color }) => {
     posX += vX * passed
     posY += vY * passed
     posZ += vZ * passed
@@ -123,7 +120,7 @@ const updatePositionVectors: UpdateFunction = ({ balls, passed, width, height })
     posY += -cy + window.innerHeight / 2
     posZ += -cz
 
-    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass }
+    return { posX, posY, posZ, vX, vY, vZ, aX, aY, aZ, mass, color }
   })
 }
 
@@ -144,26 +141,40 @@ const draw: DrawFunction = ({ canvas, balls }) => {
 
   ctx.clearRect(0, 0, canvas.width || 100, canvas.height || 100)
 
-  ctx.fillStyle = 'rgba(0,0,0,0.02)'
-  ctx.strokeStyle = 'rgba(0,0,0,0.02)'
-
-  balls.forEach(({ posX, posY, posZ, mass }, i) => {
-    ctx.beginPath()
-    const radius = Math.max(3, Math.sqrt(mass) * 0.5)
-    ctx.ellipse(posX, posY, radius * 2, radius * 2, 0, 0, 2 * Math.PI)
-    ctx.fill()
-  })
+  balls
+    .slice(0, Math.ceil(balls.length * Math.min(1, canvas.width / 1024)))
+    .forEach(({ posX, posY, mass, color }, i) => {
+      ctx.fillStyle = color
+      ctx.strokeStyle = color
+      ctx.beginPath()
+      const radius = Math.max(3, Math.sqrt(mass) * 0.5)
+      ctx.ellipse(posX, posY, radius * 2, radius * 2, 0, 0, 2 * Math.PI)
+      ctx.fill()
+      ctx.closePath()
+    })
 }
 
 const BackgroundAnimation = () => {
-  const canvas = useRef<HTMLCanvasElement>(null)
+  const animationId = useRef<number | null>(null)
+  const canvas = useRef<HTMLCanvasElement | null>(null)
+  const [, setCanvasSize] = useState({ width: 0, height: 0 })
+  const [isRunning, setIsRunning] = useState(false)
+
+  const setCanvas = useCallback((c) => {
+    canvas.current = c
+    if (c === null) {
+      setCanvasSize({ width: 0, height: 0 })
+      return
+    }
+    setCanvasSize({ width: c.width, height: c.height })
+  }, [])
 
   const loop = useCallback(
     (() => {
       if (isRunning) {
         return () => {}
       }
-      isRunning = true
+
       let lastTick = 0
 
       return (timeStamp: number) => {
@@ -177,10 +188,12 @@ const BackgroundAnimation = () => {
         })
         draw({ canvas: canvas.current, balls })
 
-        window.requestAnimationFrame(loop)
+        if (canvas) {
+          animationId.current = window.requestAnimationFrame(loop)
+        }
       }
     })(),
-    []
+    [canvas]
   )
 
   const resize = useCallback(() => {
@@ -201,10 +214,12 @@ const BackgroundAnimation = () => {
 
   useEffect(() => {
     resize()
+    setIsRunning(true)
     loop(0)
+    return () => window.cancelAnimationFrame(animationId.current || 0)
   }, [])
 
-  return <Canvas ref={canvas}></Canvas>
+  return <Canvas ref={setCanvas}></Canvas>
 }
 
 export default BackgroundAnimation

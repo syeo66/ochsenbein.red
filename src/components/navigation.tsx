@@ -68,8 +68,9 @@ const Navigation: React.FC = () => {
   return (
     <Nav className={active ? 'active' : ''}>
       <NavBurger active={active} onClick={handleBurgerClick} />
-      <NavLink to="/page-2/">Page 2</NavLink>
-      <NavLink to="/using-typescript/">TypeScript</NavLink>
+      <NavLink to="/work/">Work</NavLink>
+      <NavLink to="/about/">About</NavLink>
+      <NavLink to="/contact/">Contact</NavLink>
     </Nav>
   )
 }
