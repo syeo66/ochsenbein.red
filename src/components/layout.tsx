@@ -29,6 +29,23 @@ const Page = styled.div`
   background-blend-mode: normal;
 `
 
+const Content = styled.main`
+  transform: translateX(0);
+  transition: transform 500ms;
+  animation: 500ms ease-out 0s 1 slideInFromLeft;
+  @media screen and (min-width: 768px) {
+    padding-right: max(15%, 300px);
+  }
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+`
+
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -52,7 +69,7 @@ const Layout: React.FC = ({ children }) => {
             padding: `0 1.0875rem 1.45rem`,
           }}
         >
-          <main>{children}</main>
+          <Content>{children}</Content>
           <footer
             style={{
               marginTop: `2rem`,

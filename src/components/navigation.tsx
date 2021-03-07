@@ -18,6 +18,7 @@ const Nav = styled.nav`
   transform: translateX(calc(-100% + 3.5rem));
   transition: transform 500ms, background-color 500ms;
   padding-right: 10%;
+  z-index: 9999;
 
   &.active {
     background-color: #eee;

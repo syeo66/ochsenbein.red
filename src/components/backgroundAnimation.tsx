@@ -10,7 +10,7 @@ const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
   pointer-events: none;
-  filter: blur(15px);
+  filter: blur(4px);
 `
 
 interface Ball {
@@ -38,7 +38,7 @@ let balls: Ball[] = [...Array(50)].map(() => ({
   aY: 0,
   aZ: 0,
   mass: Math.random() * 6800,
-  color: `rgba(${Math.random() * 255},${Math.random() * 20},${Math.random() * 128},0.1)`,
+  color: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.05)`,
 }))
 
 interface UpdateInput {
