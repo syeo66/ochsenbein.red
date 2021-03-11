@@ -38,12 +38,12 @@ const Nav = styled.nav`
 const NavLink = styled(Link)`
   display: block;
   padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
   color: #666;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   transition: color 500ms;
   white-space: nowrap;
 

@@ -46,6 +46,17 @@ const Content = styled.main`
   }
 `
 
+const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-top-right-radius: 0.5rem;
+  font-size: 80%;
+  background-color: rgba(255, 255, 255, 0.7);
+`
+
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -70,15 +81,12 @@ const Layout: React.FC = ({ children }) => {
           }}
         >
           <Content>{children}</Content>
-          <footer
-            style={{
-              marginTop: `2rem`,
-            }}
-          >
-            © {new Date().getFullYear()} Red Ochsenbein
-          </footer>
         </div>
       </Page>
+      <Footer>
+        © {new Date().getFullYear() > 2021 && `2021 – `}
+        {new Date().getFullYear()} Red Ochsenbein
+      </Footer>
       <BackgroundAnimation />
     </>
   )
