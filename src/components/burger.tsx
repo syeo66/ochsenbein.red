@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Line = styled.div`
   width: 100%;
-  height: 0.3rem;
+  height: 5px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3rem;
   transition: transform 500ms, opacity 500ms;
