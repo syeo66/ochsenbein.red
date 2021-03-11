@@ -23,7 +23,7 @@ const Nav = styled.nav`
   &.active {
     background-color: #eee;
     transform: translateX(0);
-    animation: 500ms ease-out 0s 1 slideInFromLeft;
+    animation: slideInFromLeft 500ms ease-out 0 1;
     padding-right: 0;
     @keyframes slideInFromLeft {
       0% {
