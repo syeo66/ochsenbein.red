@@ -27,19 +27,7 @@ interface Ball {
   color: string
 }
 
-let balls: Ball[] = [...Array(50)].map(() => ({
-  posX: Math.random() * window.innerWidth,
-  posY: Math.random() * window.innerHeight,
-  posZ: Math.random() * window.innerWidth,
-  vX: Math.random() * 50 - 25,
-  vY: Math.random() * 50 - 25,
-  vZ: 0,
-  aX: 0,
-  aY: 0,
-  aZ: 0,
-  mass: Math.random() * 6800,
-  color: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.05)`,
-}))
+let balls: Ball[] = []
 
 interface UpdateInput {
   passed: number
@@ -213,6 +201,22 @@ const BackgroundAnimation = () => {
   }, [])
 
   useEffect(() => {
+    if (balls.length === 0) {
+      balls = [...Array(50)].map(() => ({
+        posX: Math.random() * window.innerWidth,
+        posY: Math.random() * window.innerHeight,
+        posZ: Math.random() * window.innerWidth,
+        vX: Math.random() * 50 - 25,
+        vY: Math.random() * 50 - 25,
+        vZ: 0,
+        aX: 0,
+        aY: 0,
+        aZ: 0,
+        mass: Math.random() * 6800,
+        color: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.05)`,
+      }))
+    }
+
     resize()
     setIsRunning(true)
     loop(0)
