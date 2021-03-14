@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const Canvas = styled.canvas`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

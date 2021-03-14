@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const BackgroundContainer = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -18,6 +18,7 @@ const ImageContainer = styled.div`
   position: absolute;
   bottom: -4px;
   right: 5%;
+  max-height: 100vh;
 
   opacity: 0.2;
   @media screen and (min-width: 1178px) {
