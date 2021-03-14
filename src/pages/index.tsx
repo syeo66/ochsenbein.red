@@ -20,6 +20,15 @@ const IndexPage = () => (
         <strong>λ</strong> I prefer FP over OOP, but whatever gets the job done.
       </li>
     </ul>
+    <h3>Links 🌍</h3>
+    <ul>
+      <li>
+        👨‍💼 <a href="https://cv.red0.ch/senbein">Online CV</a>
+      </li>
+      <li>
+        🎵 <a href="https://redochsenbein.ch">My old music site</a>
+      </li>
+    </ul>
   </Layout>
 )
 
