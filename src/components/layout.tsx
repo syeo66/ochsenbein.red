@@ -12,21 +12,11 @@ import styled from 'styled-components'
 import Header from './header'
 import './layout.css'
 import Navigation from './navigation'
-import background from '../images/redbackground.jpg'
 import BackgroundAnimation from './backgroundAnimation'
+import BackgroundImage from './backgroundImage'
 
 const Page = styled.div`
   min-height: 100vh;
-  background-color: white;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url(${background});
-  background-size: cover;
-  background-position: 90% 0;
-  @media screen and (min-width: 768px) {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)), url(${background});
-    background-position: 100% 0;
-  }
-  background-repeat: no-repeat;
-  background-blend-mode: normal;
 `
 
 const Content = styled.main`
@@ -71,6 +61,8 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Navigation />
+      <BackgroundAnimation />
+      <BackgroundImage />
       <Page>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <div
@@ -87,7 +79,6 @@ const Layout: React.FC = ({ children }) => {
         © {new Date().getFullYear() > 2021 && `2021 – `}
         {new Date().getFullYear()} Red Ochsenbein
       </Footer>
-      <BackgroundAnimation />
     </>
   )
 }
