@@ -25,6 +25,8 @@ const Nav = styled.nav`
     transform: translateX(0);
     animation: slideInFromLeft 500ms ease-out 0 1;
     padding-right: 0;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1), 0 0 25px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.5);
+
     @keyframes slideInFromLeft {
       0% {
         transform: translateX(calc(-100% + 3.5rem));
