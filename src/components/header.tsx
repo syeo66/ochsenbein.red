@@ -1,6 +1,18 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
+
+const SiteTitle = styled(Link)`
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-size: 150% 150%;
+  background-image: linear-gradient(135deg, #933, #933, #f93, #933);
+  background-position: 0 0;
+  text-decoration: none;
+`
 
 interface HeaderProps {
   siteTitle?: string
@@ -20,15 +32,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `#888`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+        <SiteTitle to="/">{siteTitle}</SiteTitle>
       </h1>
     </div>
   </header>

@@ -70,6 +70,13 @@ const NavBurger = styled(Burger)`
   top: 1rem;
 `
 
+const NavFooter = styled.div`
+  margin-top: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+`
+
 const Navigation: React.FC = () => {
   const [active, setActive] = useState(false)
 
@@ -81,6 +88,7 @@ const Navigation: React.FC = () => {
       <NavLink to="/work/">Work</NavLink>
       <NavLink to="/about/">About</NavLink>
       <NavLink to="/contact/">Contact</NavLink>
+      <NavFooter>Logos...</NavFooter>
     </Nav>
   )
 }
