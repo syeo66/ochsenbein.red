@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 import Burger from './burger'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 const Nav = styled.nav`
   display: flex;
@@ -103,8 +104,8 @@ const Navigation: React.FC = () => {
   return (
     <Nav className={active ? 'active' : ''}>
       <NavBurger active={active} onClick={handleBurgerClick} />
+      <NavLink to="/">Home</NavLink>
       <NavLink to="/work/">Work</NavLink>
-      <NavLink to="/about/">About</NavLink>
       <NavLink to="/contact/">Contact</NavLink>
       <NavFooter>
         <a href="https://github.com/syeo66">
