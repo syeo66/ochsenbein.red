@@ -14,7 +14,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 import Burger from './burger'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 const Nav = styled.nav`
   display: flex;
