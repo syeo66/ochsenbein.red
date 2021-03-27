@@ -26,5 +26,5 @@ clean: node_modules
 public : node_modules src
 	gatsby build
 
-node_modules : package.json yarn.lock
+node_modules : yarn.lock
 	yarn
