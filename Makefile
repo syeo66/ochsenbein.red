@@ -7,10 +7,7 @@ help:
 build: public
 	@echo "Built!"
 
-public : src
-	gatsby build
-
-develop:
+develop: node_modules
 	gatsby develop
 
 format:
@@ -21,5 +18,13 @@ start: develop
 serve: build
 	gatsby serve
 
-clean:
+clean: node_modules
 	gatsby clean
+
+######################################################################
+
+public : node_modules src
+	gatsby build
+
+node_modules : package.json yarn.lock
+	yarn
