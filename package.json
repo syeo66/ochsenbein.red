@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ochsenbein-red",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The 2021 version of my website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Red Ochsenbein <red@redochsenbein.ch>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
