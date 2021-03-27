@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Red Ochsenbein" />
     <h2>Hi people</h2>
     <p>
       Yeah, Red is really my name. I'm the Head of (Software) Development at Mindfire, and I code. Currently I really
