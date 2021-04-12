@@ -4,4 +4,9 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+// Also see: https://stackoverflow.com/questions/57264220/how-to-create-a-page-in-gatsby-from-json-file
+
+exports.onCreateNode = ({ node }) => {
+  console.log(node)
+  console.log(`Node created of type "${node.internal.type}"`)
+}
