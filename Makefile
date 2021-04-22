@@ -33,5 +33,5 @@ test: node_modules
 public : node_modules src
 	${GATSBY} build
 
-node_modules : yarn.lock
+node_modules : yarn.lock package.json
 	yarn
