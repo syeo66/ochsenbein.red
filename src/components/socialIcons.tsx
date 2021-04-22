@@ -26,9 +26,6 @@ const SocialIcons = () => {
       <a href="https://geo.itunes.apple.com/us/artist/red-ochsenbein/id780186176?mt=1&app=music">
         <FontAwesomeIcon icon={faItunes} />
       </a>
-      <a href="https://hearthis.at/redochsenbein/">
-        <FontAwesomeIcon icon={faSoundcloud} />
-      </a>
       <a href="https://youtube.com/redochsenbein">
         <FontAwesomeIcon icon={faYoutube} />
       </a>

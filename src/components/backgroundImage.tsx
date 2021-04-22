@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const BackgroundContainer = styled.div`
   position: fixed;
@@ -41,24 +41,22 @@ const ImageContainer = styled.div`
 
 const Red = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(relativePath: { eq: "red.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 450, layout: CONSTRAINED, placeholder: TRACED_SVG)
         }
       }
     }
   `)
 
-  if (!data?.placeholderImage?.childImageSharp?.fluid) {
+  if (!data?.placeholderImage?.childImageSharp?.gatsbyImageData) {
     return <div>Picture not found</div>
   }
 
   return (
     <ImageContainer>
-      <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+      <GatsbyImage alt="" image={data.placeholderImage.childImageSharp.gatsbyImageData} />
     </ImageContainer>
   )
 }

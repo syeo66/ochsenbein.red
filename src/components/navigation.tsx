@@ -77,7 +77,7 @@ const NavFooter = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: center;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 8vw, 2rem);
 
   a {
     margin-left: 0.4rem;
