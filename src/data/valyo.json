@@ -1,7 +1,10 @@
 {
   "name": "Valyo’s digital financial market platform",
+  "image": "valyo.png",
+  "employer": "Infocentric / Valtech",
   "client": "Valyo AG",
   "website": "https://valyo.com",
+  "short": "A digital market platform connecting institutional investors and issuers.",
   "description": "A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
   "tasks": "Frontend development of the platform using React and GraphQL.",
   "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
