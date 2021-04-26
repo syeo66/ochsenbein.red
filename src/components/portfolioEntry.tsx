@@ -2,7 +2,16 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import styled from 'styled-components'
 
-const EntryContainer = styled.div``
+interface EntryContainerProps {
+  index: number
+  isActive: boolean
+}
+const EntryContainer = styled.div<EntryContainerProps>`
+  transform: translateX(${({ index }) => index * 100}%) rotateY(${({ isActive }) => (isActive ? 0 : 90)}deg)
+    scaleX(${({ isActive }) => (isActive ? 1 : 0)});
+  transition: opacity 500ms, transform 800ms;
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+`
 const EntryHeading = styled.h3``
 const EntryBody = styled.div``
 const EntryImage = styled(GatsbyImage)`
@@ -23,12 +32,13 @@ interface PortfolioEntryProps {
       }
     }
   }
+  index: number
+  active: number
 }
 
-const PortfolioEntry: React.FC<PortfolioEntryProps> = ({ entry: { name, short, image } }) => {
-  console.log(image)
+const PortfolioEntry: React.FC<PortfolioEntryProps> = ({ entry: { name, short, image }, index, active }) => {
   return (
-    <EntryContainer>
+    <EntryContainer index={index} isActive={active === index}>
       <EntryImage alt="" image={image.childImageSharp.gatsbyImageData} />
       <EntryHeading>{name}</EntryHeading>
       <EntryBody>{short}</EntryBody>
