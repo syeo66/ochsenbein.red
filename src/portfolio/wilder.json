@@ -1,0 +1,12 @@
+{
+  "slug": "wilder",
+  "name": "Wilder - Season 1 website",
+  "image": "../images/wilder.png",
+  "employer": "",
+  "client": "SRF",
+  "website": "https://www.jassfederal.ch",
+  "short": "A digital market platform connecting institutional investors and issuers.",
+  "description": "A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
+  "tasks": "Frontend development of the platform using React and GraphQL.",
+  "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
+}
