@@ -13,22 +13,26 @@ interface WorkEntry {
     id: string
     name: string
     short: string
-    image: string
+    image: any
   }
 }
 
 const Work = () => {
   const {
-    allDataJson: { edges: portfolio },
+    allPortfolioJson: { edges: portfolio },
   } = useStaticQuery(graphql`
     query {
-      allDataJson {
+      allPortfolioJson {
         edges {
           node {
             id
             name
             short
-            image
+            image {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED, placeholder: TRACED_SVG)
+              }
+            }
           }
         }
       }
@@ -37,7 +41,7 @@ const Work = () => {
 
   return (
     <Layout>
-      <SEO title="Page two" />
+      <SEO title="Work /// Red Ochsenbein" />
       <h2>Work</h2>
       <Portfolio>
         {portfolio.map(({ node: p }: WorkEntry) => (

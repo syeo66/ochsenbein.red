@@ -1,6 +1,7 @@
 {
+  "slug": "valyo",
   "name": "Valyo’s digital financial market platform",
-  "image": "valyo.png",
+  "image": "../images/valyo.png",
   "employer": "Infocentric / Valtech",
   "client": "Valyo AG",
   "website": "https://valyo.com",
