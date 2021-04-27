@@ -7,27 +7,32 @@ import styled from 'styled-components'
 import PortfolioEntry from '../components/portfolioEntry'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { BreakPoint } from '../design-tokens'
 
 const Portfolio = styled.div`
-  position: relative;
-  width: 100%;
-  height: 600px;
+  @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
+    position: relative;
+    width: 100%;
+    height: 600px;
+  }
 `
 
 interface CubeProps {
   active: number
 }
 const PortfolioInner = styled.div<CubeProps>`
-  position: relative;
-  transition: transform 500ms;
-  perspective: 2000px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  transform-origin: 50% 50%;
-  transform: translateX(-${({ active }) => active * 100}%);
-  > * {
-    position: absolute;
+  @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
+    position: relative;
+    transition: transform 500ms;
+    perspective: 2000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
     transform-origin: 50% 50%;
+    transform: translateX(-${({ active }) => active * 100}%);
+    > * {
+      position: absolute;
+      transform-origin: 50% 50%;
+    }
   }
 `
 
@@ -36,30 +41,34 @@ interface PortfolioControlProps {
   hidden?: boolean
 }
 const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
-  position: absolute;
-  font-size: 5rem;
-  z-index: 1000;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
-  top: 0;
-  ${({ position }) =>
-    position === 'left'
-      ? `
+  display: none;
+  @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
+    position: absolute;
+    display: block;
+    font-size: 5rem;
+    z-index: 1000;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+    top: 0;
+    ${({ position }) =>
+      position === 'left'
+        ? `
     left:0;
     transform: translateX(-101%) scale(0.6);
     :hover {
       transform: translateX(-101%) scale(1) rotateZ(10deg);
     }
   `
-      : `
+        : `
     right: 0;
     transform: translateX(101%) scale(0.6);
     :hover {
       transform: translateX(101%) scale(1) rotateZ(-10deg);
     }
   `}
-  cursor: pointer;
-  transition: transform 400ms, opacity 1s;
-  opacity: ${({ hidden }) => (hidden ? 0 : 1)};
+    cursor: pointer;
+    transition: transform 400ms, opacity 1s;
+    opacity: ${({ hidden }) => (hidden ? 0 : 1)};
+  }
 `
 
 interface WorkEntry {

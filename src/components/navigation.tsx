@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { BreakPoint } from '../design-tokens'
 
 import Burger from './burger'
 import SocialIcons from './socialIcons'
@@ -12,7 +13,8 @@ const Nav = styled.nav`
   top: 0;
   bottom: 0;
   right: 0;
-  @media screen and (min-width: 1024px) {
+  pointer-events: none;
+  @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
     right: 75%;
     min-width: 23rem;
   }
@@ -23,6 +25,7 @@ const Nav = styled.nav`
   z-index: 9999;
 
   &.active {
+    pointer-events: all;
     background-color: #f3f3f3;
     transform: translateX(0);
     animation: slideInFromLeft 500ms ease-out 0 1;
@@ -70,6 +73,7 @@ const NavBurger = styled(Burger)`
   position: absolute;
   right: 0.5rem;
   top: 1rem;
+  pointer-events: all;
 `
 
 const NavFooter = styled.div`
@@ -77,7 +81,7 @@ const NavFooter = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: center;
-  font-size: clamp(1.4rem, 8vw, 2rem);
+  font-size: clamp(1.4rem, 7.7vw, 2rem);
 
   a {
     margin-left: 0.4rem;
