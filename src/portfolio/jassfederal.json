@@ -4,9 +4,9 @@
   "image": "../images/jassfederal.png",
   "employer": "Gbanga",
   "client": "Swisscom",
-  "website": "https://jassfederal.ch/",
-  "short": "A digital market platform connecting institutional investors and issuers.",
-  "description": "A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
-  "tasks": "Frontend development of the platform using React and GraphQL.",
-  "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
+  "website": "https://www.jassfederal.ch/",
+  "short": "Multiplayer swiss cardgame implementation playable on the phone, in the browser and on the smart TV.",
+  "description": "",
+  "tasks": "Frontend development of the game.",
+  "tags": ["Javascript", "Phaser.js", "Rx.js", "Websockets", "CSS Animation"]
 }

@@ -73,10 +73,16 @@ const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
 
 interface WorkEntry {
   node: {
+    client: string
+    description: string
+    employer: string
     id: string
+    image: any
     name: string
     short: string
-    image: any
+    tags: string[]
+    tasks: string
+    website: string
   }
 }
 
@@ -91,6 +97,12 @@ const Work = () => {
             id
             name
             short
+            description
+            tasks
+            tags
+            employer
+            website
+            client
             image {
               childImageSharp {
                 gatsbyImageData(width: 800, layout: CONSTRAINED, placeholder: TRACED_SVG)

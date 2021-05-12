@@ -2,11 +2,11 @@
   "slug": "wilder",
   "name": "Wilder - Season 1 website",
   "image": "../images/wilder.png",
-  "employer": "",
+  "employer": "Clever Industries",
   "client": "SRF",
-  "website": "https://www.jassfederal.ch",
-  "short": "A digital market platform connecting institutional investors and issuers.",
-  "description": "A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
-  "tasks": "Frontend development of the platform using React and GraphQL.",
-  "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
+  "website": "https://wilder.ch/staffel1/",
+  "short": "Accessory website to the successul SRF TV show 'Wilder'.",
+  "description": "",
+  "tasks": "Custom built map using D3js and jQuery. Google Firebase backend for user content.",
+  "tags": ["Javascript", "SVG", "jQuery", "D3js", "Firebase"]
 }

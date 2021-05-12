@@ -8,10 +8,10 @@ const IndexPage = () => (
     <SEO title="Red Ochsenbein" />
     <h2>Hi people</h2>
     <p>
-      Yeah, Red is really my name. I'm the Head of (Software) Development at Mindfire, and I code. Currently I really
-      like Typescript, Go and Dart. But I have experience in a lot of other languages and technologies. I already did a
-      lot in my live, from being a banker, to work as music composer, to being a freelance web developer, and designing
-      t-shirts.
+      Yeah, this is really my name. I'm a Senior Frontend Developer, and I code. At the moment I am diving deep into
+      Typescript, React and Elixir. But I have experience in a lot of other languages and technologies like Go, Dart,
+      Python and PHP. I already did a lot in my live, from being a banker, to work as music composer, to being a
+      freelance web developer, and designing t-shirts.
     </p>
     <ul>
       <li>🌱 Vegan</li>

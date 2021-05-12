@@ -1,11 +1,11 @@
 {
   "slug": "redbull-stuff",
-  "name": "RedBull",
+  "name": "RedBull - Summer Edition",
   "image": "../images/redbull.png",
   "employer": "Gbanga",
   "client": "Red Bull",
-  "short": "A digital market platform connecting institutional investors and issuers.",
-  "description": "A digital market platform connecting institutional investors and issuers directly. The platform provides real-time book building and a sophisticated allocation simulator.",
-  "tasks": "Frontend development of the platform using React and GraphQL.",
-  "tags": ["Typescript", "React.js", "Apollo", "GraphQL", "Sass", "CSS Animation"]
+  "short": "Interactive storytelling with a huge zoomable game map, many hidden features and animations.",
+  "description": "",
+  "tasks": "Development of the game.",
+  "tags": ["Javascript", "Leaflet.js", "jQuery", "HTML5", "CSS", "CSS Animation"]
 }
