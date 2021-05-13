@@ -10,8 +10,8 @@ const IndexPage = () => (
     <p>
       Yeah, this is really my name. I'm a Senior Frontend Developer, and I code. At the moment I am diving deep into
       Typescript, React and Elixir. But I have experience in a lot of other languages and technologies like Go, Dart,
-      Python and PHP. I already did a lot in my live, from being a banker, to work as music composer, to being a
-      freelance web developer, and designing t-shirts.
+      Python and PHP. I already did a lot in my live, from being a banker, playing music on tour, jumping out of planes,
+      being a music composer, to being a freelance web developer, and designing t-shirts.
     </p>
     <ul>
       <li>🌱 Vegan</li>
@@ -19,14 +19,11 @@ const IndexPage = () => (
       <li>
         <strong>λ</strong> I prefer FP over OOP, but whatever gets the job done.
       </li>
-    </ul>
+      {/* </ul>
     <h3>Links 🌍</h3>
-    <ul>
+    <ul> */}
       <li>
-        👨‍💼 <a href="https://cv.red0.ch/senbein">Online CV</a>
-      </li>
-      <li>
-        🎵 <a href="https://music.redochsenbein.ch">My old music site</a>
+        🎵 <a href="https://music.redochsenbein.ch">My old music related website</a>
       </li>
     </ul>
   </Layout>
