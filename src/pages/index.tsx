@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Red Ochsenbein" />
+    <SEO title="Home" />
     <h2>Hi people</h2>
     <p>
       Yeah, this is really my name. I'm a Senior Frontend Developer, and I code. At the moment I am diving deep into

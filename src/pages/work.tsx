@@ -121,7 +121,7 @@ const Work = () => {
 
   return (
     <Layout>
-      <SEO title="Work /// Red Ochsenbein" />
+      <SEO title="Work" />
       <h2>Work</h2>
       <Portfolio>
         <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} hidden={active === portfolio.length - 1} />
