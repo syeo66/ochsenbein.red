@@ -15,7 +15,6 @@ const EntryContainer = styled.div<EntryContainerProps>`
       scaleX(${({ isActive }) => (isActive ? 1 : 0)});
     transition: opacity 500ms, transform 800ms;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-    margin-bottom: 0;
   }
 `
 const EntryHeading = styled.h3`
