@@ -87,7 +87,7 @@ const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
       <EntryHeading>{name}</EntryHeading>
       <EntryBody>{short}</EntryBody>
       {website && (
-        <a href={website} target="_blank">
+        <a href={website} target="_blank" rel="noopener">
           {website}
         </a>
       )}
