@@ -61,7 +61,8 @@ const NavLink = styled(Link)`
   background-position: 0 0;
   transition: background-position 500ms;
 
-  &:hover {
+  &:hover,
+  &.active {
     background-position: 100% 100%;
   }
 
@@ -97,9 +98,15 @@ const Navigation: React.FC = () => {
   return (
     <Nav className={active ? 'active' : ''}>
       <NavBurger active={active} onClick={handleBurgerClick} />
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/work/">Work</NavLink>
-      <NavLink to="/contact/">Contact</NavLink>
+      <NavLink to="/" activeClassName="active">
+        Home
+      </NavLink>
+      <NavLink to="/work/" activeClassName="active">
+        Work
+      </NavLink>
+      <NavLink to="/contact/" activeClassName="active">
+        Contact
+      </NavLink>
       <NavFooter>
         <SocialIcons />
       </NavFooter>
