@@ -50,7 +50,7 @@ const Work = () => {
 
   return (
     <Layout>
-      <SEO title="Work" />
+      <SEO title="Experiments" />
       <h2>Experiments</h2>
       <Portfolio>
         <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} hidden={active === portfolio.length - 1} />
