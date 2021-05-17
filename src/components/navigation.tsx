@@ -104,6 +104,9 @@ const Navigation: React.FC = () => {
       <NavLink to="/work/" activeClassName="active">
         Work
       </NavLink>
+      <NavLink to="/fun/" activeClassName="active">
+        Experiments
+      </NavLink>
       <NavLink to="/contact/" activeClassName="active">
         Contact
       </NavLink>

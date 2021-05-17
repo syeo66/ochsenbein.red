@@ -57,15 +57,15 @@ const LabelEntry: React.FC<LabelEntryProps> = ({ children, label }) => (
 
 interface PortfolioEntryProps {
   entry: {
-    description: string
-    employer: string
+    description?: string
+    employer?: string
     id: string
     name: string
     short: string
     tags: string[]
-    tasks: string
+    tasks?: string
     website: string
-    client: string
+    client?: string
     image: {
       childImageSharp: {
         gatsbyImageData: any
@@ -92,9 +92,9 @@ const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
         </a>
       )}
       <Separator />
-      <LabelEntry label="Task:">{tasks}</LabelEntry>
-      <LabelEntry label="Client:">{client}</LabelEntry>
-      <LabelEntry label="Agency:">{employer}</LabelEntry>
+      {tasks && <LabelEntry label="Task:">{tasks}</LabelEntry>}
+      {client && <LabelEntry label="Client:">{client}</LabelEntry>}
+      {employer && <LabelEntry label="Agency:">{employer}</LabelEntry>}
       <LabelEntry label="Tags:">{tags.join(', ')}</LabelEntry>
     </EntryContainer>
   )

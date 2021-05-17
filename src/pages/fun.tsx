@@ -9,36 +9,29 @@ import PortfolioEntry from '../components/portfolioEntry'
 
 interface WorkEntry {
   node: {
-    client: string
     description: string
-    employer: string
     id: string
     image: any
     name: string
     short: string
     tags: string[]
-    tasks: string
     website: string
   }
 }
 
 const Work = () => {
   const {
-    allPortfolioJson: { edges: portfolio },
+    allExperimentsJson: { edges: portfolio },
   } = useStaticQuery(graphql`
     query {
-      allPortfolioJson {
+      allExperimentsJson {
         edges {
           node {
             id
             name
             short
-            description
-            tasks
             tags
-            employer
             website
-            client
             image {
               childImageSharp {
                 gatsbyImageData(width: 800, layout: CONSTRAINED, placeholder: TRACED_SVG)
@@ -58,7 +51,7 @@ const Work = () => {
   return (
     <Layout>
       <SEO title="Work" />
-      <h2>Work</h2>
+      <h2>Experiments</h2>
       <Portfolio>
         <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} hidden={active === portfolio.length - 1} />
         <PortfolioControl icon={faArrowAltCircleLeft} position="left" onClick={handlePrev} hidden={active === 0} />
