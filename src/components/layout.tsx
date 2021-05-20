@@ -61,7 +61,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Navigation />
-      <BackgroundAnimation />
+      {/* <BackgroundAnimation /> */}
       <BackgroundImage />
       <Page>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
