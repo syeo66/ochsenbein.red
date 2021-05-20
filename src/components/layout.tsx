@@ -12,7 +12,7 @@ import styled from 'styled-components'
 import Header from './header'
 import './layout.css'
 import Navigation from './navigation'
-import BackgroundAnimation from './backgroundAnimation'
+// import BackgroundAnimation from './backgroundAnimation'
 import BackgroundImage from './backgroundImage'
 
 const Page = styled.div`
