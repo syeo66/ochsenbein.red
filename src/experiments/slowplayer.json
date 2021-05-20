@@ -1,0 +1,8 @@
+{
+  "slug": "slowplayer",
+  "name": "Raspberry PI bases slow movie player",
+  "image": "../images/slowplayer.jpg",
+  "website": "",
+  "short": "A 'smart' photo frame using an e-paper screen and Raspberri Pi to show a movie at a rate of 4 seconds of movie per hour.",
+  "tags": ["Raspberry PI", "BASH", "Python"]
+}
