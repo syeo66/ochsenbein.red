@@ -55,9 +55,9 @@ const Work = () => {
       <Portfolio>
         <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} hidden={active === portfolio.length - 1} />
         <PortfolioControl icon={faArrowAltCircleLeft} position="left" onClick={handlePrev} hidden={active === 0} />
-        <PortfolioInner active={active}>
+        <PortfolioInner active={active} total={portfolio.length}>
           {portfolio.map(({ node: p }: WorkEntry, i: number) => (
-            <PortfolioEntry key={p.id} entry={p} index={i} active={active} />
+            <PortfolioEntry key={p.id} entry={p} index={i} active={active} total={portfolio.length} />
           ))}
         </PortfolioInner>
       </Portfolio>

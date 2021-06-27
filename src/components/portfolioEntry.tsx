@@ -1,22 +1,27 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { BreakPoint } from '../design-tokens'
 
 interface EntryContainerProps {
   index: number
+  total: number
   isActive: boolean
+  width: number
 }
 const EntryContainer = styled.div<EntryContainerProps>`
   margin-bottom: 3rem;
 
   @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
-    transform: translateX(${({ index }) => index * 100}%) rotateY(${({ isActive }) => (isActive ? 0 : 90)}deg)
-      scaleX(${({ isActive }) => (isActive ? 1 : 0)});
-    transition: opacity 500ms, transform 800ms;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-    margin-bottom: 0;
-    padding-bottom: 3rem;
+    transition: opacity 1s;
+    transform: rotateY(${({ total, index }) => (360 / total) * index}deg)
+      translateZ(${({ total, width }) => (width * 0.5) / Math.tan(Math.PI / total)}px);
   }
 `
 const EntryHeading = styled.h3`
@@ -73,16 +78,25 @@ interface PortfolioEntryProps {
     }
   }
   index: number
+  total: number
   active: number
 }
 
 const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
   entry: { name, short, image, tags, tasks, employer, client, website },
   index,
+  total,
   active,
 }) => {
+  const entryRef = useRef<HTMLDivElement | null>(null)
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(entryRef.current?.offsetWidth || 0)
+  }, [entryRef.current])
+
   return (
-    <EntryContainer index={index} isActive={active === index}>
+    <EntryContainer ref={entryRef} index={index} total={total} width={width} isActive={active === index}>
       <EntryImage alt="" image={image.childImageSharp.gatsbyImageData} />
       <EntryHeading>{name}</EntryHeading>
       <EntryBody>{short}</EntryBody>

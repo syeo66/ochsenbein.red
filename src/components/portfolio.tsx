@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled, { StyledComponent } from 'styled-components'
+import React, { useRef, useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 import { BreakPoint } from '../design-tokens'
 
@@ -46,23 +47,51 @@ export const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
   }
 `
 
-interface PortfolieInnerProps {
-  active: number
-}
-export const PortfolioInner = styled.div<PortfolieInnerProps>`
+const PortfolioScene = styled.div`
   @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
     position: relative;
-    transition: transform 500ms;
-    perspective: 2000px;
-    perspective-origin: 50% 50%;
-    transform-style: preserve-3d;
-    transform-origin: 50% 50%;
-    transform: translateX(-${({ active }) => active * 100}%);
-    > * {
-      position: absolute;
-      transform-origin: 50% 50%;
-    }
+    perspective: 1000px;
+    width: 100%;
   }
 `
+
+interface PortfolioCarouselProps {
+  zOffset: number
+  rotation: number
+}
+const PortfolioCarousel = styled.div<PortfolioCarouselProps>`
+  @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
+    width: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateZ(${({ zOffset }) => zOffset}px) rotateY(${({ rotation }) => rotation}deg);
+    transition: transform 500ms;
+  }
+`
+
+interface PortfolioInnerProps {
+  active?: number
+  total: number
+}
+export const PortfolioInner: React.FC<PortfolioInnerProps> = ({ children, total, active = 0 }) => {
+  const entryRef = useRef<HTMLDivElement | null>(null)
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(entryRef.current?.offsetWidth || 0)
+  }, [entryRef.current])
+
+  return (
+    <PortfolioScene>
+      <PortfolioCarousel
+        ref={entryRef}
+        rotation={-((360 / total) * active)}
+        zOffset={-((width * 0.5) / Math.tan(Math.PI / total))}
+      >
+        {children}
+      </PortfolioCarousel>
+    </PortfolioScene>
+  )
+}
 
 export default Portfolio
