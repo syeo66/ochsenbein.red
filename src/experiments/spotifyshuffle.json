@@ -4,5 +4,5 @@
   "image": "../images/shuffle.png",
   "website": "https://shuffle.raven.ch/",
   "short": "Improved shuffle for Spotify. I was just not happy with Spotifys shuffle function, so I built one.",
-  "tags": ["Javascript", "React", "Rx.js"]
+  "tags": ["Javascript", "React", "Redux", "react-query"]
 }
