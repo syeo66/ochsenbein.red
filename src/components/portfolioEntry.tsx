@@ -19,7 +19,7 @@ const EntryContainer = styled.div<EntryContainerProps>`
     left: 0;
     right: 0;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-    transition: opacity 1s;
+    transition: opacity 500ms;
     transform: rotateY(${({ total, index }) => (360 / total) * index}deg)
       translateZ(${({ total, width }) => (width * 0.5) / Math.tan(Math.PI / total)}px);
   }

@@ -8,7 +8,7 @@ const Portfolio = styled.div`
   @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: fit-content;
   }
 `
 
@@ -47,11 +47,15 @@ export const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
   }
 `
 
-const PortfolioScene = styled.div`
+interface PortfolioSceneProps {
+  height: number
+}
+const PortfolioScene = styled.div<PortfolioSceneProps>`
   @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
     position: relative;
     perspective: 1000px;
     width: 100%;
+    height: ${({ height }) => height}px;
   }
 `
 
@@ -62,6 +66,7 @@ interface PortfolioCarouselProps {
 const PortfolioCarousel = styled.div<PortfolioCarouselProps>`
   @media screen and (min-width: calc(${BreakPoint.tablet} + 1px)) {
     width: 100%;
+    height: 100%;
     position: absolute;
     transform-style: preserve-3d;
     transform: translateZ(${({ zOffset }) => zOffset}px) rotateY(${({ rotation }) => rotation}deg);
@@ -76,13 +81,24 @@ interface PortfolioInnerProps {
 export const PortfolioInner: React.FC<PortfolioInnerProps> = ({ children, total, active = 0 }) => {
   const entryRef = useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    setWidth(entryRef.current?.offsetWidth || 0)
+    if (!entryRef.current) {
+      return
+    }
+    setWidth(entryRef.current.offsetWidth || 0)
+    const children = entryRef.current.getElementsByTagName('div')
+    let max = 0
+    for (let i = 0; i < children.length; i++) {
+      const node = children.item(i)
+      max = Math.max(max, node?.offsetHeight || 0)
+    }
+    setHeight(max + 30)
   }, [entryRef.current])
 
   return (
-    <PortfolioScene>
+    <PortfolioScene height={height}>
       <PortfolioCarousel
         ref={entryRef}
         rotation={-((360 / total) * active)}

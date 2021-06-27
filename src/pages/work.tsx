@@ -55,8 +55,6 @@ const Work = () => {
   const handleNext = useCallback(() => setActive((a) => Math.min(a + 1, portfolio.length - 1)), [])
   const handlePrev = useCallback(() => setActive((a) => Math.max(a - 1, 0)), [])
 
-  console.log(active)
-
   return (
     <Layout>
       <SEO title="Work" />
