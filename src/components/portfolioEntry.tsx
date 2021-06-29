@@ -96,7 +96,13 @@ const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
   }, [entryRef.current])
 
   return (
-    <EntryContainer ref={entryRef} index={index} total={total} width={width} isActive={active === index}>
+    <EntryContainer
+      ref={entryRef}
+      index={index}
+      total={total}
+      width={width}
+      isActive={(active + total * 1000) % total === index}
+    >
       <EntryImage alt="" image={image.childImageSharp.gatsbyImageData} />
       <EntryHeading>{name}</EntryHeading>
       <EntryBody>{short}</EntryBody>

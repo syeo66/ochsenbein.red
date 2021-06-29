@@ -52,16 +52,16 @@ const Work = () => {
 
   const [active, setActive] = useState(0)
 
-  const handleNext = useCallback(() => setActive((a) => Math.min(a + 1, portfolio.length - 1)), [])
-  const handlePrev = useCallback(() => setActive((a) => Math.max(a - 1, 0)), [])
+  const handleNext = useCallback(() => setActive((a) => a + 1), [])
+  const handlePrev = useCallback(() => setActive((a) => a - 1), [])
 
   return (
     <Layout>
       <SEO title="Work" />
       <h2>Work</h2>
       <Portfolio>
-        <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} hidden={active === portfolio.length - 1} />
-        <PortfolioControl icon={faArrowAltCircleLeft} position="left" onClick={handlePrev} hidden={active === 0} />
+        <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} />
+        <PortfolioControl icon={faArrowAltCircleLeft} position="left" onClick={handlePrev} />
         <PortfolioInner active={active} total={portfolio.length}>
           {portfolio.map(({ node: p }: WorkEntry, i: number) => (
             <PortfolioEntry key={p.id} entry={p} index={i} active={active} total={portfolio.length} />
