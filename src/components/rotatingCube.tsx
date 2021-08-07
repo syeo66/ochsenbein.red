@@ -17,7 +17,7 @@ const RotatingCube: React.FC<RotatingCubeProps> = ({ size, className }) => {
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(65, 1, 0.1, 1000)
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true })
+    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true })
     renderer.setSize(size, size)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setClearColor(0x000000, 0)
