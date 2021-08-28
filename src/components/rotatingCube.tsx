@@ -1,6 +1,4 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 interface RotatingCubeProps {

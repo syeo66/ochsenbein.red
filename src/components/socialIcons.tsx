@@ -6,7 +6,6 @@ import {
   faItunes,
   faKeybase,
   faLinkedin,
-  faSoundcloud,
   faSpotify,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
