@@ -50,7 +50,7 @@ const NavLink = styled(Link)`
     Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
   font-weight: normal;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, calc(100vw / 9), 2.5rem);
   white-space: nowrap;
   color: transparent;
   background-clip: text;
