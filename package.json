@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@types/react-helmet": "^6.1.0",
     "@types/styled-components": "^5.1.7",
-    "@types/three": "^0.134.0",
+    "@types/three": "^0.135.0",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.1.4",
     "gatsby-plugin-image": "^2.1.2",
