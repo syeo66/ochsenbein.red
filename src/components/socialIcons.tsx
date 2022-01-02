@@ -1,14 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faGithub,
-  faHackerrank,
-  faItunes,
-  faKeybase,
-  faLinkedin,
-  faSpotify,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faItunes, faKeybase, faLinkedin, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const SocialIcons = () => {
   return (
@@ -31,9 +23,9 @@ const SocialIcons = () => {
       <a href="https://open.spotify.com/artist/1i3V7aj2JTmWCztusF22qC">
         <FontAwesomeIcon icon={faSpotify} />
       </a>
-      <a href="https://www.hackerrank.com/redochsenbein">
+      {/* <a href="https://www.hackerrank.com/redochsenbein">
         <FontAwesomeIcon icon={faHackerrank} />
-      </a>
+      </a> */}
     </>
   )
 }
