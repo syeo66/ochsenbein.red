@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faItunes, faKeybase, faLinkedin, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faItunes, faLinkedin, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const SocialIcons = () => {
   return (
@@ -11,9 +11,9 @@ const SocialIcons = () => {
       <a href="https://www.linkedin.com/in/red-ochsenbein/">
         <FontAwesomeIcon icon={faLinkedin} />
       </a>
-      <a href="https://keybase.io/redochsenbein">
+      {/* <a href="https://keybase.io/redochsenbein">
         <FontAwesomeIcon icon={faKeybase} />
-      </a>
+      </a> */}
       <a href="https://geo.itunes.apple.com/us/artist/red-ochsenbein/id780186176?mt=1&app=music">
         <FontAwesomeIcon icon={faItunes} />
       </a>
