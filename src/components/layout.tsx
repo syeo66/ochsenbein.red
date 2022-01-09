@@ -5,14 +5,16 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-import Header from './header'
-import './layout.css'
-import Navigation from './navigation'
+import { useStaticQuery, graphql } from 'gatsby'
+
 import BackgroundImage from './backgroundImage'
+import Header from './header'
+import Navigation from './navigation'
+
+import './layout.css'
 
 const Page = styled.div`
   min-height: 100vh;
@@ -46,7 +48,11 @@ const Footer = styled.footer`
   background-color: rgba(255, 255, 255, 0.7);
 `
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  location?: string
+  title?: string
+}
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -82,7 +88,8 @@ const Layout: React.FC = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  location: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default Layout
