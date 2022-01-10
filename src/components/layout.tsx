@@ -52,7 +52,7 @@ interface LayoutProps {
   location?: string
   title?: string
 }
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -68,7 +68,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navigation />
       <BackgroundImage />
       <Page>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Header siteTitle={title || data.site.siteMetadata?.title || `Title`} />
         <div
           style={{
             margin: `0 auto`,

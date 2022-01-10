@@ -1,24 +1,28 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
-const BlogPostTemplate = ({ data, location }) => {
+interface BlogPostTemplateProps {
+  location: string
+}
+const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `Red Ochsenbein`
   const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-      <article className="blog-post" itemScope itemType="http://schema.org/Article">
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
-      </article>
+      <Article className="blog-post" itemScope itemType="http://schema.org/Article">
+        <Header>
+          <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
+          <BlogDate>{post.frontmatter.date}</BlogDate>
+        </Header>
+        <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
+      </Article>
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -49,6 +53,52 @@ const BlogPostTemplate = ({ data, location }) => {
   )
 }
 
+const Article = styled.article``
+const Header = styled.header``
+const BlogHeading = styled.h1`
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+  background-size: 150% 150%;
+  background-image: linear-gradient(135deg, #933, #933, #f93, #933);
+  background-position: 0 0;
+  text-decoration: none;
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+`
+const BlogDate = styled.p`
+  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+`
+const BlogBody = styled.section`
+  & > p {
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-family: 'Algereya Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+      Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: normal;
+    font-size: 1.3rem;
+  }
+
+  blockquote {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.5rem;
+
+    &:before {
+      content: '“';
+      font-size: 5rem;
+      margin-left: -2.5rem;
+      margin-top: 0.5rem;
+      position: absolute;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+`
+
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
@@ -64,7 +114,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "D. MMMM YYYY")
         description
       }
     }
