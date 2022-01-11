@@ -24,15 +24,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
       </Article>
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <BlogPagination>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -47,7 +39,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
               </Link>
             )}
           </li>
-        </ul>
+        </BlogPagination>
       </nav>
     </Layout>
   )
@@ -97,6 +89,15 @@ const BlogBody = styled.section`
       color: rgba(0, 0, 0, 0.5);
     }
   }
+`
+
+const BlogPagination = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `
 
 export default BlogPostTemplate
