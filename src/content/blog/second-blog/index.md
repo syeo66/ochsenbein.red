@@ -1,9 +1,9 @@
 ---
-title: Second Blog
-date: '2022-01-10T21:07:03.284Z'
-description: 'Second Blog'
+title: Hello world
+date: '2022-01-11T20:56:00.000Z'
+description: 'This is my first blog entry. Nothing to see here, yet.'
 ---
 
-This is just another test for the blog thingie.
+I just prepared my website to host a blog in the future. This page is currently only a placeholder until I wrote my first 'real' blog entry.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+I hope to write articles about web and games development, my learning journey, and other things... We'll see where this goes.

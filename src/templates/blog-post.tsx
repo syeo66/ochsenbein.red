@@ -19,7 +19,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
       <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Article className="blog-post" itemScope itemType="http://schema.org/Article">
         <Header>
-          <h2 itemProp="headline">{post.frontmatter.title}</h2>
+          <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
           <BlogDate>{post.frontmatter.date}</BlogDate>
         </Header>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
@@ -48,17 +48,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 
 const Article = styled.article``
 const Header = styled.header``
-const BlogHeading = styled.h1`
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-  background-size: 150% 150%;
-  background-image: linear-gradient(135deg, #933, #933, #f93, #933);
-  background-position: 0 0;
-  text-decoration: none;
-  font-size: 1.8rem;
+const BlogHeading = styled.h2`
   margin-bottom: 0.2rem;
 `
 const BlogDate = styled.p`

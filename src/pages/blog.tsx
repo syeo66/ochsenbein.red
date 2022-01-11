@@ -38,7 +38,7 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </BlogHeading>
-                  <small>{post.frontmatter.date}</small>
+                  <BlogDate>{post.frontmatter.date}</BlogDate>
                 </header>
                 <section>
                   <p
@@ -68,9 +68,20 @@ const BlogEntry = styled.li`
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   padding-bottom: 1rem;
 `
+const BlogDate = styled.small`
+  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+`
 
-const BlogHeading = styled.h3`
+const BlogHeading = styled.h2`
   margin-bottom: 0;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-size: 150% 150%;
+  background-image: linear-gradient(135deg, #933, #933, #f93, #933);
+  background-position: 0 0;
+  text-decoration: none;
 `
 
 export default BlogIndex
@@ -89,7 +100,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "D. MMMM YYYY")
           title
           description
         }
