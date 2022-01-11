@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 
 interface BlogPostTemplateProps {
+  data: any
   location: string
 }
 const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) => {
@@ -18,7 +19,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
       <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <Article className="blog-post" itemScope itemType="http://schema.org/Article">
         <Header>
-          <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
+          <h2 itemProp="headline">{post.frontmatter.title}</h2>
           <BlogDate>{post.frontmatter.date}</BlogDate>
         </Header>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
