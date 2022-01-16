@@ -20,13 +20,22 @@ const ImageContainer = styled.div`
   right: 5%;
   max-height: 100vh;
 
-  opacity: 0.2;
-  @media screen and (min-width: 1178px) {
-    opacity: 0.7;
+  opacity: 0.1;
+  @media screen and (max-width: 760px) {
+    opacity: 0.1;
+  }
+  @media screen and (min-width: 760px) {
+    opacity: 0.3;
   }
   @media screen and (min-width: 980px) {
     opacity: 0.5;
   }
+  @media screen and (min-width: 1178px) {
+    opacity: 0.7;
+  }
+
+  transition: opacity 1s;
+
   transform: translateX(0);
   animation: slideInFromRight 1000ms ease-out 0ms 1;
   @keyframes slideInFromRight {

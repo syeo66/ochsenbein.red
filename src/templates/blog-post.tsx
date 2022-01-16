@@ -55,6 +55,8 @@ const BlogDate = styled.p`
   font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
 `
 const BlogBody = styled.section`
+  hyphens: auto;
+
   & > p {
     margin-bottom: 0.75rem;
   }
