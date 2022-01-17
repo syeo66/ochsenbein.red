@@ -58,7 +58,11 @@ const BlogBody = styled.section`
   hyphens: auto;
 
   & > p {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  h2 {
+    margin-bottom: 0.85rem;
   }
 
   h3 {
@@ -66,6 +70,7 @@ const BlogBody = styled.section`
       Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: normal;
     font-size: 1.3rem;
+    margin-bottom: 0.75rem;
   }
 
   blockquote {
