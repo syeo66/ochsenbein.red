@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@types/react-helmet": "^6.1.5",
     "@types/styled-components": "^5.1.7",
-    "@types/three": "^0.139.0",
+    "@types/three": "^0.140.0",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.4.0",
     "gatsby-plugin-feed": "^4.4.0",
@@ -37,7 +37,7 @@
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.3",
-    "three": "^0.139.0"
+    "three": "^0.140.0"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
