@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
 import { BreakPoint } from '../design-tokens'
@@ -78,7 +78,7 @@ interface PortfolioInnerProps {
   active?: number
   total: number
 }
-export const PortfolioInner: React.FC<PortfolioInnerProps> = ({ children, total, active = 0 }) => {
+export const PortfolioInner: React.FC<PropsWithChildren<PortfolioInnerProps>> = ({ children, total, active = 0 }) => {
   const entryRef = useRef<HTMLDivElement | null>(null)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)

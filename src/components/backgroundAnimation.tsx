@@ -148,7 +148,7 @@ const BackgroundAnimation = () => {
   const [, setCanvasSize] = useState({ width: 0, height: 0 })
   const [isRunning, setIsRunning] = useState(false)
 
-  const setCanvas = useCallback((c) => {
+  const setCanvas = useCallback((c: HTMLCanvasElement) => {
     canvas.current = c
     if (c === null) {
       setCanvasSize({ width: 0, height: 0 })

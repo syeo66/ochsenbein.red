@@ -1,6 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React, { useEffect, useRef } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useRef, useState, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { BreakPoint } from '../design-tokens'
 
@@ -54,7 +53,7 @@ const Label = styled.strong`
 const LabelEntryBody = styled(EntryBody)`
   display: flex;
 `
-const LabelEntry: React.FC<LabelEntryProps> = ({ children, label }) => (
+const LabelEntry: React.FC<PropsWithChildren<LabelEntryProps>> = ({ children, label }) => (
   <LabelEntryBody>
     <Label>{label}</Label> {children}
   </LabelEntryBody>

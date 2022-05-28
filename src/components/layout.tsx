@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -52,7 +52,7 @@ interface LayoutProps {
   location?: string
   title?: string
 }
-const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({ children, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
