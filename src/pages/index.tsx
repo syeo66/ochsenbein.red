@@ -20,9 +20,6 @@ const IndexPage: React.FC = () => (
       <li>
         <strong>λ</strong> I prefer FP over OOP, but whatever gets the job done.
       </li>
-      <li>
-        🎵 <a href="https://music.redochsenbein.ch">My old music related website</a>
-      </li>
     </ul>
   </Layout>
 )
