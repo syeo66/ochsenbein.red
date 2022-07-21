@@ -1,5 +1,5 @@
 ---
-title: 'Why do I think snapshot tests are a bad idea.'
+title: 'Why do I think snapshot tests are a bad idea?'
 date: '2022-07-20T15:01:00.000Z'
 description: 'Discussing snapshot tests and why I think they are a bad idea. And what you should do instead.'
 ---
