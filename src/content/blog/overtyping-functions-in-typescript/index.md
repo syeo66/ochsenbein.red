@@ -21,7 +21,7 @@ const cat: Cat = { name: 'Garfield', furColor: 'orange', age: 3 }
 console.log(getName(cat));
 ```
 
-In this simple example the function `getName()` returns the name of the cat (Garfield). So for so good. Now let's assume we introduce a new interface `Person`:
+In this example, the function `getName()` returns the name of the cat (Garfield). So for so good. Now let's assume we introduce a new interface `Person`:
 
 ```typescript
 interface Person {
@@ -55,9 +55,9 @@ const getName = (obj: { name: string }): string => {
 
 Now we can use it for cats and people, and every other object which has a `name` property. The function does not need anything else to work with, so we should no restrict it artificially.
 
-But why does this work? It works because Typescript only checks if an argument does at least have the properties defined in the interface. It does not compare the actualy type and ignores any additional properties in the argument. This also means I had to construct the example this way around to demonstrate my point. If I had used `Person` instead of `Cat` as the parameters type, the compiler would have accepted a cat as well. But still, the function is only actually using the `name` property, so why should we expect the parameter to contain an age?
+But why does this work? It works because Typescript only checks if an argument does at least have the properties defined in the interface. It does not compare the actual type and ignores any additional properties in the argument. This also means I had to construct the example this way around to demonstrate my point. If I had used `Person` instead of `Cat` as the type of the parameter, the compiler would have accepted a cat as well. But still, the function is only actually using the `name` property, so why should we expect the parameter to contain an age?
 
-This might seem obvious in this case. But I have seen a lot of more complex functions where the types of the parameters were quite restricting in a similar way while not even using all the parameters of the function.
+This might seem obvious in this case. But I have seen a lot of more complex functions where the types of the parameters were quite restricting while not even using all the properties in the function.
 
 ## One more step
 
@@ -69,10 +69,10 @@ const getName = <T extends { name: unknown }>(obj: T): T['name']  => {
 }
 ```
 
-This way we don't even have to know the type of `name`. It will be inferred from the type of the object. Of course in this special case it does not make much sense to have a name to be anything else than a string. But it helps to highlight the power of generics.
+This way we don't even have to know the type of `name`. It will be inferred from the type of the object. Of course in this special case, it does not make much sense to have a name be anything else than a string. But it helps to highlight the power of generics.
 
 ## Conclusion
 
-This is all I wanted to show you in this article. Don't just slap your existing interfaces on the parameters of a function. Think about what the function actually needs and only require this. It will make your functions more flexible and easier to reuse.
+This is all I wanted to show you in this article. Don't just slap your existing interfaces on the parameters of a function. Think about what the function actually needs and only requires this. It will make your functions more flexible and easier to reuse.
 
-Generics are a powerful tool to help making your code even more reusable. They are certainly worth exploring even further. But this will be a topic for another time.
+Generics are a powerful tool to help make your code even more reusable. They are certainly worth exploring even further. But this will be a topic for another time.
