@@ -21,7 +21,7 @@ const cat: Cat = { name: 'Garfield', furColor: 'orange', age: 3 }
 console.log(getName(cat));
 ```
 
-In this example, the function `getName()` returns the name of the cat (Garfield). So for so good. Now let's assume we introduce a new interface `Person`:
+In this example, the function `getName()` returns the name of the cat (Garfield). So far so good. Now let's assume we introduce a new interface `Person`:
 
 ```typescript
 interface Person {
