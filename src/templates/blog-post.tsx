@@ -73,6 +73,11 @@ const BlogBody = styled.section`
     margin-bottom: 0.75rem;
   }
 
+  .gatsby-highlight pre {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
   blockquote {
     position: relative;
     background-color: rgba(0, 0, 0, 0.05);
