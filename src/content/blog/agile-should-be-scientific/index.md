@@ -26,7 +26,7 @@ Of course, there might be substeps. For instance to formulate a proper hypothesi
 
 The agile process looks quite similar:
 
-- Define iterations (also called a sprint) goal
+- Define the iteration's (also called a sprint) goal
 - Write the stories, requirements and acceptance criteria
 - Develop the defined features
 - Deploy the feature
