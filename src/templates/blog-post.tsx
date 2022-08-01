@@ -107,6 +107,10 @@ const BlogPagination = styled.ul`
   margin: 0;
   padding: 0;
 
+  li {
+    width: 100%;
+  }
+
   li:last-child {
     text-align: right;
   }
