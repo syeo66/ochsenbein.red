@@ -55,6 +55,8 @@ const BlogHeading = styled.h2`
 `
 const BlogDate = styled.time`
   font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+  margin-bottom: 1rem;
+  display: block;
 `
 const BlogBody = styled.section`
   hyphens: auto;
