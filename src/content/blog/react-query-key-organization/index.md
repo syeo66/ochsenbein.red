@@ -37,4 +37,4 @@ Using useQuery would then look like this:
 const { data, isLoading } => useQuery(todoQuery.key(id), () => todoQuery.query(id))
 ```
 
-I think this is a simple but effective way to make sure the keys are always the same even when the keys need to change for some reason, you always alter them for all the places they has been used.
+I think this is a simple but effective way to make sure the keys are always the same. Even when the keys need to change for some reason, you always alter them for all the places they have been used.
