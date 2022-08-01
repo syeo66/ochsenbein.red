@@ -20,11 +20,13 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
       <Article className="blog-post" itemScope itemType="http://schema.org/Article">
         <Header>
           <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
-          <BlogDate>{post.frontmatter.date}</BlogDate>
+          <BlogDate role="time" dateTime={new Date().toISOString()}>
+            {post.frontmatter.date}
+          </BlogDate>
         </Header>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
       </Article>
-      <nav className="blog-post-nav">
+      <nav className="blog-post-nav" role="navigation">
         <BlogPagination>
           <li>
             {previous && (
@@ -51,7 +53,7 @@ const Header = styled.header``
 const BlogHeading = styled.h2`
   margin-bottom: 0.2rem;
 `
-const BlogDate = styled.p`
+const BlogDate = styled.time`
   font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
 `
 const BlogBody = styled.section`
@@ -102,6 +104,10 @@ const BlogPagination = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+
+  li:last-child {
+    text-align: right;
+  }
 `
 
 export default BlogPostTemplate
