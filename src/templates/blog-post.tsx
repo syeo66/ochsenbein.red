@@ -20,9 +20,12 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
       <Article className="blog-post" itemScope itemType="http://schema.org/Article">
         <Header>
           <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
-          <BlogDate role="time" dateTime={new Date().toISOString()}>
-            {post.frontmatter.date}
-          </BlogDate>
+          <Meta>
+            <BlogDate role="time" dateTime={new Date().toISOString()}>
+              {post.frontmatter.date}
+            </BlogDate>
+            {post.frontmatter.devTo && <DevTo href={post.frontmatter.devTo}>Read and comment at dev.to</DevTo>}
+          </Meta>
         </Header>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
       </Article>
@@ -48,14 +51,23 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
   )
 }
 
+const DevTo = styled.a`
+  cursor: pointer;
+  display: block;
+`
+
 const Article = styled.article``
+const Meta = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+`
 const Header = styled.header``
 const BlogHeading = styled.h2`
   margin-bottom: 0.2rem;
 `
 const BlogDate = styled.time`
   font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
-  margin-bottom: 1rem;
   display: block;
 `
 const BlogBody = styled.section`
@@ -133,6 +145,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "D. MMMM YYYY")
         description
+        devTo
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
