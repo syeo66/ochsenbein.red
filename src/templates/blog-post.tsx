@@ -21,7 +21,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <Header>
           <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
           <Meta>
-            <BlogDate role="time" dateTime={new Date().toISOString()}>
+            <BlogDate role="time" dateTime={new Date(post.frontmatter.date).toISOString()}>
               {post.frontmatter.date}
             </BlogDate>
             {post.frontmatter.devTo && <DevTo href={post.frontmatter.devTo}>Read and comment at dev.to</DevTo>}
