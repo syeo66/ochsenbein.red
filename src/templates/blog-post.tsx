@@ -67,8 +67,10 @@ const BlogHeading = styled.h2`
   margin-bottom: 0.2rem;
 `
 const BlogDate = styled.time`
-  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
   display: block;
+  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+  margin-right: 1rem;
+  white-space: nowrap;
 `
 const BlogBody = styled.section`
   hyphens: auto;
