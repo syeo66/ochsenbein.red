@@ -2,7 +2,7 @@
 title: 'Animating HTML Elements Using FLIP'
 date: '2022-08-06T21:15:00.000Z'
 description: 'FLIP - First, Last, Invert, Play.'
-devTo: ''
+devTo: 'https://dev.to/syeo66/animating-html-elements-using-flip-ngd'
 ---
 In modern web apps you come across the need to animate HTML elements. Be it to visualize the transition between multiple lists, switching positions in one list, growing elements on selection, etc. There are many cases to make your app feel more 'flashy' by animating stuff.
 
