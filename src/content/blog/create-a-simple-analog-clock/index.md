@@ -130,7 +130,6 @@ interface DateProps {
   time: Date
 }
 
-
 const Hours = styled.div<DateProps>`
   ...
   transform-origin: center calc(100% - 5px);
@@ -211,9 +210,25 @@ So, we might want to increase the resolution of the clock to 250 milliseconds or
   }, [time])
 ```
 
+## 6. One more thing
+
+While this works we created a potential problem. A problem that is rather specific to styled components. Styled components create a new class for each unique combination of props. This means that if you change the props of a component, the class will be recreated. This is a problem for performance. The solution is to use the `attr()` method.
+
+```typescript
+const Hours = styled.div.attrs<DateProps>(({ time }) => ({
+  style:{
+    transform: `rotateZ(${((time.getHours() % 12) * 60 + time.getMinutes()) * 0.5}deg)`,
+  },
+})).<DateProps>`
+   ...
+`
+```
+
 ## Conclusion
 
 We discovered that dealing with time brings certain challenges (we only scratched the surface though - thing's get pretty complicated as soon as you have to synchronize with a server, need precision and/or have to deal with timezones). But there it is: a working clock.
+
+Take a look at the finished implementation in this [gist](https://gist.github.com/syeo66/af150559bb75cde7e77382e935b6fcae).
 
 You can go on and improve the clock: Try adding a day of month field, add indicators for the hours and try different hand designs using pure css or svg. The stage is yours.
 
