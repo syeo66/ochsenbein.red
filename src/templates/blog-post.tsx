@@ -93,7 +93,7 @@ const BlogBody = styled.section`
 
   .gatsby-highlight pre {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 45px rgba(120, 10, 10, 0.4);
     padding: 0.25em 0.5em;
   }
 
