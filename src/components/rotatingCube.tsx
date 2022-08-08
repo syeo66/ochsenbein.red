@@ -1,5 +1,13 @@
 import React, { useEffect, useRef } from 'react'
-import * as THREE from 'three'
+import {
+  Scene,
+  PerspectiveCamera,
+  WebGLRenderer,
+  BoxGeometry,
+  EdgesGeometry,
+  LineSegments,
+  LineBasicMaterial,
+} from 'three'
 
 interface RotatingCubeProps {
   size: number
@@ -13,16 +21,16 @@ const RotatingCube: React.FC<RotatingCubeProps> = ({ size, className }) => {
       return
     }
 
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(65, 1, 0.1, 1000)
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true })
+    const scene = new Scene()
+    const camera = new PerspectiveCamera(65, 1, 0.1, 1000)
+    const renderer = new WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true })
     renderer.setSize(size, size)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setClearColor(0x000000, 0)
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const edges = new THREE.EdgesGeometry(geometry)
-    const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x993333 }))
+    const geometry = new BoxGeometry(1, 1, 1)
+    const edges = new EdgesGeometry(geometry)
+    const line = new LineSegments(edges, new LineBasicMaterial({ color: 0x993333 }))
 
     scene.add(line)
 

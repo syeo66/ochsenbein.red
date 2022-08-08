@@ -1,13 +1,14 @@
-import React, { useCallback, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React, { useCallback, useState, lazy, Suspense } from 'react'
+import styled from 'styled-components'
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Portfolio, { PortfolioControl, PortfolioInner } from '../components/portfolio'
 import PortfolioEntry from '../components/portfolioEntry'
-import RotatingCube from '../components/rotatingCube'
-import styled from 'styled-components'
+
+const RotatingCube = lazy(() => import('../components/rotatingCube'))
 
 interface WorkEntry {
   node: {
@@ -55,7 +56,9 @@ const Work = () => {
       <SEO title="Experiments" />
       <h2>
         Experiments
-        <Cube size={60} />
+        <Suspense fallback={null}>
+          <Cube size={60} />
+        </Suspense>
       </h2>
       <Portfolio>
         <PortfolioControl icon={faArrowAltCircleRight} onClick={handleNext} />
