@@ -2,7 +2,7 @@
 title: 'React: Create a simple analog clock'
 date: '2022-08-08T21:15:00.000Z'
 description: 'Create a simple analog clock React component and learn a bit about time.'
-devTo: 'https://dev.to/syeo66/'
+devTo: 'https://dev.to/syeo66/react-create-a-simple-analog-clock-2k1k'
 ---
 
 I recently had to create a simple analog clock component for my React project. I now want to share how I approached it.
