@@ -2,7 +2,7 @@
 title: 'Typescript: It''s not actually validating your types.'
 date: '2022-08-11T21:15:00.000Z'
 description: 'Types in typescript try to ensure you are working with the data you expect. But...'
-devTo: 'https://dev.to/syeo66/'
+devTo: 'https://dev.to/syeo66/typescript-its-not-actually-validating-your-types-1mn3'
 ---
 
 Typescript is a nice thing: It lets you define types and make sure your classes and functions adhere to certain expectations. It forces you to think about what data you put into a function and what you will get out of it. If you get that wrong and try to call a function which expects a sting with a - let's say - number, the compiler will let you know. Which is a good thing.
