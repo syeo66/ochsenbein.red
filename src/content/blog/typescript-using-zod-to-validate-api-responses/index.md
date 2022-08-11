@@ -125,8 +125,11 @@ const validate = (obj: any): obj is User => {
     && typeof obj.birthday === 'string'
 }
 
-const userResp = await retrieveUser()
-const user = validate(userResp)
+const user = await retrieveUser()
+
+if (!validate(user)) {
+  throw Error('User data is invalid')
+}
 ```
 
 This way we can make sure the data is, what it claims to be. But you might see this can get quickly get out of hands in more complex cases.
