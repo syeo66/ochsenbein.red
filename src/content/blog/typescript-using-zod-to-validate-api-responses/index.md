@@ -114,7 +114,7 @@ This would work and typescript would recognize the type of the user. But it migh
 What should we do now. Write a validator function. This might look something like this:
 
 ```typescript
-const validate = (obj: User | any): obj is User => {
+const validate = (obj: any): obj is User => {
   return obj !== null 
     && typeof obj === 'object'
     && 'firstname' in obj
