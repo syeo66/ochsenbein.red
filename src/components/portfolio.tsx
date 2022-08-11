@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState, useEffect, PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 import { BreakPoint } from '../design-tokens'
