@@ -155,7 +155,7 @@ const User = z.object({
 The type could then be extracted (inferred) from this schema.
 
 ```typescript
-const UserType = t.infer<User>
+const UserType = z.infer<User>
 ```
 
 and the validation looks like this
