@@ -162,5 +162,5 @@ const DemoClock: React.FC = () => {
 }
 ```
 
-As you can see by defining the start and end of each step we never fall into the situation to have to move backwards. But also it allows us to change the time at any point without having the hand rotating like a maniac and we never need to use degrees larger than 360. For me this felt like the ideal solution.
+As you can see by defining the start and end of each step we never fall into the situation to have to move backwards. But also it allows us to change the time at any point without having the hand rotating like a maniac and we never need to use degrees larger than 360. To me this felt like the ideal solution.
 
