@@ -2,7 +2,7 @@
 title: 'React: Smoothly move the seconds hand of the analog clock'
 date: '2022-08-15T21:15:00.000Z'
 description: 'I created an analog clock in React. Now I wanted to have the seconds hand move smoothly.'
-devTo: 'https://dev.to/syeo66/'
+devTo: 'https://dev.to/syeo66/react-smoothly-move-the-seconds-hand-of-the-analog-click-hji'
 ---
 
 In my last [article](https://ochsenbein.red/create-a-simple-analog-clock/) about the analog clock I showed how I built it. The seconds hand is just jumping from second to second but I wanted to have it move smoothly.
