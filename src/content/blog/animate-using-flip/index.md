@@ -6,7 +6,7 @@ devTo: 'https://dev.to/syeo66/animating-html-elements-using-flip-ngd'
 ---
 In modern web apps you come across the need to animate HTML elements. Be it to visualize the transition between multiple lists, switching positions in one list, growing elements on selection, etc. There are many cases to make your app feel more 'flashy' by animating stuff.
 
-While doint that you will notice that there will be some questions to answer. How do we deal with the element changing the DOM. When and how to initiate the animation. Should we clone the element or just reuse it. In no way I'm suggesting FLIP will just answer all those questions. But it will give you a good starting point to make the management of the animation a bit easier.
+While doing that you will notice that there will be some questions to answer. How do we deal with the element changing the DOM. When and how to initiate the animation. Should we clone the element or just reuse it. In no way I'm suggesting FLIP will just answer all those questions. But it will give you a good starting point to make the management of the animation a bit easier.
 
 The trick is to not start with the elements starting position, but with it's final position. All this will get clearer as we describe what FLIP means:
 
