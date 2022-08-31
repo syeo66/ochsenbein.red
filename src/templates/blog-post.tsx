@@ -21,7 +21,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <Header>
           <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
           <Meta>
-            <BlogDate role="time" dateTime={new Date(post.frontmatter.date).toISOString()}>
+            <BlogDate role="time">
               {post.frontmatter.date}
             </BlogDate>
             {post.frontmatter.devTo && <DevTo href={post.frontmatter.devTo}>Read and comment at dev.to</DevTo>}
@@ -66,7 +66,7 @@ const Header = styled.header``
 const BlogHeading = styled.h2`
   margin-bottom: 0.2rem;
 `
-const BlogDate = styled.time`
+const BlogDate = styled.div`
   display: block;
   font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
   margin-right: 1rem;
