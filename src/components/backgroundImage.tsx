@@ -53,7 +53,7 @@ const Red = () => {
     {
       placeholderImage: file(relativePath: { eq: "red.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 450, layout: CONSTRAINED, placeholder: TRACED_SVG)
+          gatsbyImageData(width: 450, layout: CONSTRAINED, placeholder: BLURRED)
         }
       }
     }

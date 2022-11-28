@@ -37,7 +37,7 @@ const Work = () => {
             website
             image {
               childImageSharp {
-                gatsbyImageData(width: 800, layout: CONSTRAINED, placeholder: TRACED_SVG)
+                gatsbyImageData(width: 800, layout: CONSTRAINED, placeholder: BLURRED)
               }
             }
           }
