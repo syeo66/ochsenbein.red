@@ -1,6 +1,6 @@
 ---
 title: 'Adding websocket to express using rxjs'
-date: '2022-10-02T11:15:00.000Z'
+date: '2022-12-22T11:15:00.000Z'
 description: 'RxJs is a great way to deal with streams. And websockets are the very definition of streams.'
 devTo: 'https://dev.to/syeo66/'
 ---
@@ -50,3 +50,147 @@ server.on('upgrade', (request, socket, head) => {
 ```
 
 As you can see we do not have to do much here. Just deal with the upgrade request from the server and emit a new connection using our websocket server.
+
+## Create the observable using RxJS
+
+I created a file which will contain export the observable we'll use to provide the stream for the websockets.
+
+```typescript
+const nasaApotd = () => {
+}
+
+export default nasaApotd
+```
+
+### Fetching the data in regular intervals
+
+First I'd have to fetch the data from the API. To rotate through random images we'll retrieve a new random set of images every hour.
+
+```typescript 
+import axios from 'axios'
+import { catchError, concatMap, distinctUntilChanged, filter, from, map, switchMap, take, timer } from 'rxjs'
+
+const refetchInterval = 3600 // fetch every hour
+const rotationInterval = 30 // rotate background every 30 seconds
+
+const rotationCount = Math.floor(refetchInterval / Math.max(1, rotationInterval))
+
+const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${rotationCount}`
+
+const $nasaApotd = () => {
+  return timer(0, refetchInterval * 1000).pipe(
+    concatMap(() =>
+      from(axios.get(url)).pipe(
+        catchError((err) => {
+          console.error('NasaApotd', err.response.statusText)
+          return [null]
+        })
+      )
+    ),
+  )
+}
+
+export default nasaApotd
+```
+
+This will create a timer which fetches data from the url once an hour.
+
+=== TODO describe `timer`, `concatMap`, `pipe` and `from` ===
+
+### Prepare the data
+
+```typescript
+[...]
+import { z } from 'zod'
+
+const ApodData = z.object({
+  copyright: z.optional(z.string()),
+  hdurl: z.optional(z.string()),
+})
+const ApodDataArray = z.array(ApodData)
+
+[...]
+
+const $nasaApotd = () => {
+  return timer(0, refetchInterval * 1000).pipe(
+    concatMap(() =>
+      [...]
+    ),
+    map((res): BackgroundData[] => {
+      if (!res) {
+        return []
+      }
+
+      const data = ApodDataArray.safeParse(res.data)
+
+      if (!data.success) {
+        console.warn(data.error)
+        return []
+      }
+
+      return data.data
+        ?.map<BackgroundData | null>(({ hdurl, copyright }) => (hdurl ? { url: hdurl, credits: copyright } : null))
+        .filter((e): e is BackgroundData => Boolean(e))
+    }),
+  )
+}
+
+export default nasaApotd
+```
+
+=== TODO describe `map`, mention zod for data validation. ===
+
+### Rotate the images
+
+```typescript
+[...]
+
+const $nasaApotd = () => {
+  return timer(0, refetchInterval * 1000).pipe(
+    concatMap(() =>
+      [...]
+    ),
+    map((res): BackgroundData[] => {
+      [...]
+    }),
+    switchMap((ev) =>
+      timer(0, rotationInterval * 1000).pipe(
+        take(Math.ceil(rotationCount)),
+        map((i) => (ev[i % ev.length] ? `SetBackground ${JSON.stringify(ev[i % ev.length])}` : null))
+      )
+    ),
+  )
+}
+
+export default nasaApotd
+```
+
+=== TODO describe `switchMap` and `take` ===
+
+### Make sure we don't send repeated messages
+
+```typescript
+[...]
+
+const $nasaApotd = () => {
+  return timer(0, refetchInterval * 1000).pipe(
+    concatMap(() =>
+      [...]
+    ),
+    map((res): BackgroundData[] => {
+      [...]
+    }),
+    switchMap((ev) =>
+      [...]
+    ),
+    filter(Boolean),
+    distinctUntilChanged()
+  )
+}
+
+export default nasaApotd
+```
+
+=== TODO describe `filter` and `distinctUntilChanged` ===
+
+## Hook up the observable with the websocket
