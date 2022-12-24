@@ -9,7 +9,7 @@ const IndexPage: React.FC = () => (
     <h2>Hi people</h2>
     <p>
       I'm a Software Developer with many years of experience. At the moment I am diving deep into Typescript, React,
-      Svelte and Elixir, and I love getting my hands dirty in coding puzzles (tech interviewers better be prepared 🤣).
+      Rust and Elixir, and I love getting my hands dirty in coding puzzles (tech interviewers better be prepared 🤣).
       But I have experience in a lot of other languages and technologies like Go, Dart, Python and PHP. I already did a
       lot in my live, from being a banker, playing music on tour, jumping out of planes, being a music composer, to
       being a freelance web developer, and designing t-shirts.
@@ -17,6 +17,7 @@ const IndexPage: React.FC = () => (
     <ul>
       <li>🌱 Vegan</li>
       <li>🚀 In love with rockets and space</li>
+      <li>📓 neovim &gt; VSC</li>
       <li>
         <strong>λ</strong> I prefer FP over OOP, but whatever gets the job done.
       </li>
