@@ -1,8 +1,0 @@
-{
-  "slug": "redcentral",
-  "name": "RedCentral - Personal Dashboard",
-  "image": "../images/redcentral.png",
-  "website": "https://github.com/syeo66/redcentral",
-  "short": "A personal dashboard web application using Svelte and Google Firebase.",
-  "tags": ["Firebase", "Svelte", "Cloud Firestore", "Dashboard", "svelte-query"]
-}
