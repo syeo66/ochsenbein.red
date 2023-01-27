@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+import 'prismjs/themes/prism.css'
 import '@fontsource/alegreya-sans/100.css'
 import '@fontsource/spinnaker'
 import '@fontsource/poppins'
