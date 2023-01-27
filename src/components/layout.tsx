@@ -5,16 +5,16 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
+import './layout.css'
+
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
 
 import BackgroundImage from './backgroundImage'
 import Header from './header'
 import Navigation from './navigation'
-
-import './layout.css'
 
 const Page = styled.div`
   min-height: 100vh;
