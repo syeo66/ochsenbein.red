@@ -126,20 +126,6 @@ const KnobWrapper = styled.div`
   touch-action: none;
 `
 
-const KnobValue = styled.div`
-  position: absolute;
-  left: 2.2rem;
-  min-width: 2rem;
-  top: 1.5rem;
-  background: var(--background-color);
-  text-align: center;
-  margin: 0;
-  padding: 0.1rem;
-  border: 1px solid var(--border-color);
-  font-size: 0.7rem;
-  line-height: 0.7rem;
-`
-
 const KnobLabel = styled.div`
   text-align: center;
   margin: 0;
@@ -228,7 +214,7 @@ To make it work on mobile we need to intercept the touch events.
 const Knob: React.FC<KnobProps> = ({ label, onChange, value: inputValue, step, min, max }) => {
   [...]
 
-   const touchCoords = useRef<Coords | null>(null)
+  const touchCoords = useRef<Coords | null>(null)
 
   const handleTouchMove = useCallback(
     (e: TouchEvent) => {
