@@ -7,28 +7,43 @@ devTo: 'https://dev.to/syeo66/'
 
 Here we are. AI is the big thing everyone was expecting for years now. It's not a new idea. More than half a century ago science fiction writers were already talking about it. But now it is here. What will we do with it? Where will it lead to? What happens to our society?
 
-To be honest: Nobody knows what the future will be like. 10 years ago I was overly optimistic about autonomous cars. I predicted that within 5 years every new car will be self-driving. Well, 10 year in and it still this seems to be coming within 5 years (and I think: probably not).
+To be honest: Nobody knows what the future will be like. 10 years ago I was overly optimistic about autonomous cars. I predicted that within 5 years every new car will be self-driving. Well, 10 year in and it still seems to be coming within 5 years (probably not).
 
 But what do I think about LLMs like GPT-4 or ChatGPT, or things like DALL-E and Midjourney? I'll try to take you on a journey through my thoughts. 
 
 ## The optimistic view 
 
 ### Chances in healthcare 
-Advancements in technology have the potential to revolutionize healthcare in a number of ways, from more efficient diagnosis and treatment to better access to care for underserved populations. Telemedicine and digital health platforms are becoming increasingly popular, allowing patients to receive remote consultations and access to medical information and resources. AI and machine learning can also help healthcare professionals make more accurate diagnoses and develop personalized treatment plans for patients.
+Advancements in technology have the potential to revolutionize healthcare in a number of ways, from more efficient diagnosis and treatment to better access to care for underserved populations. Telemedicine and digital health platforms are becoming increasingly popular, allowing patients to receive remote consultations and access to medical information and resources.
+
+I think, most importantly AI and machine learning can also help healthcare professionals make more accurate diagnoses and develop personalized treatment plans for patients. No medical doctor on this world is able to keep up with all the new developments and papers. Especially when it comes to rare diseases it will be helpful to be able to feed an AI with symptoms and other data and retrieve pointers to things the doctor might not even have heard of.
+
+Those developments will increase the quality of life for many, when we manage to make it accessible and affordable for everyone.
 
 ### Chances for society 
-Emerging technologies also offer many benefits for society at large. For example, the use of autonomous vehicles could improve road safety, reduce traffic congestion, and cut down on greenhouse gas emissions. Smart cities could help us better manage resources, from water and electricity to waste disposal. In addition, emerging technologies can help to address social issues such as poverty and inequality, by providing new tools and opportunities for education and economic empowerment.
+Emerging technologies also offer many benefits for society at large. The use of autonomous vehicles could improve road safety, reduce traffic congestion, and cut down on greenhouse gas emissions. Smart cities could help us better manage resources, from water and electricity to waste disposal. The technologies can help to address social issues such as poverty and inequality, by providing new tools and opportunities for education and economic empowerment.
+
+Increased automation could lead to a redefinition of work. Society might finally be able to fulfill the promise of a more purposeful life and not having to rely on job just to be able to survive.
 
 ### Chances for the environment
-Finally, emerging technologies have the potential to help us address some of the biggest environmental challenges we face today. For example, renewable energy technologies such as solar and wind power can help us transition away from fossil fuels and reduce our carbon footprint. In addition, advanced agricultural technologies such as precision farming can help us reduce waste, conserve water, and increase food production in a sustainable way.
+The new technologies have the potential to help us address some of the biggest environmental challenges we face today. Renewable energy technologies such as solar and wind power can help us transition away from fossil fuels and reduce our carbon footprint. AI can help us find improved ways of reducing unnecessary transportation, make supply chains and distribution of resources more efficient. Advanced agricultural technologies such as precision farming can help us reduce waste, conserve water, and increase food production in a sustainable way.
 
 ## The pessimistic view 
 
 ### Black box problem 
-One of the main concerns with emerging technologies is the so-called "black box problem." As machine learning algorithms become more complex and powerful, it becomes increasingly difficult for humans to understand how they are making decisions. This lack of transparency can be problematic, particularly in areas such as healthcare, where decisions can have life-or-death consequences. There is also the risk of algorithmic bias, where the algorithms reflect and reinforce existing biases and inequalities in society.
+One of the main concerns with AIs is the so-called "black box problem." As machine learning algorithms become more complex and powerful, it becomes increasingly difficult for humans to understand how they are making decisions. In a neural network you can't just go in, take a look at any part of it and extrapolate the finale result from there. 
+
+As far as I see it, never before we built something we can't comprehend in such a way. If you think about it, we build incredible machines, but we always knew how each of its parts contributed to the whole. This is no longer true in neural networks and other algorithms. This lack of transparency can be problematic, particularly in areas such as healthcare, where decisions can have life-or-death consequences. 
+
+There is also the risk of algorithmic bias, where the algorithms reflect and reinforce existing biases and inequalities in society. As a heard a CEO saying once: "Why should we care about biases in algorithms? Humans have biases, too." This sums up the problem quite well. There seems to be a lack of awareness in the field.
+
+### Alignment problem
+Quite similar to the black box problem is the Alignment problem. Since we can't really see into the inner workings of the decision making process of those models we really can't know if the goal of the AI is actually aligned with the goal we think we gave it. There are several examples of this. Can we be sure a image classifier identifies something because of the thing itself, or just because something always happens to be on those images. Is a doctor a doctor because she has a stetoscope? Or is it the gender? Or anything else? 
 
 ### Social acceptance automaton
-Another concern is the potential for emerging technologies to replace human interaction and empathy. For example, as chatbots and virtual assistants become more sophisticated, there is a risk that they will be used to replace human customer service representatives and healthcare providers. This could lead to a world where people are increasingly isolated and disconnected from one another, and where human touch and empathy are devalued.
+If you think about how we train a language model. First we train a model which should learn how a human would interact with the model and then we train the actual model with the other model. Does the language model really learn to give accurate and correct information, or does it learn to please the person interacting with it? In other words a langauge model might just learn to tell us what we want to hear.
+
+How can we make sure the model actually learns to be correct? Are there enough experts in every field involved with the training of the models? I think this is one of the hardest problem we'll have to address, and honestly, I'm not sure if this can be fixed in any way.
 
 ### Knowledge gap 
 There is also a risk that emerging technologies will widen the gap between the haves and have-nots. As AI and automation disrupt industries and create new jobs, there is a risk that some people will be left behind, lacking the skills and education necessary to participate in the new economy. This could lead to a world where a small elite holds most of the wealth and power, while the rest of society struggles to get by.
