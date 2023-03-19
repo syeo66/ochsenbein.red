@@ -137,7 +137,7 @@ const KnobLabel = styled.div`
 
 Then I needed to add the actual mouse wheel handler:
 
-```typescript 
+```typescript
 const Knob: React.FC<KnobProps> = ({ label, onChange, value, step, min, max }) => {
   const [value, setValue] = useState(inputValue)
 
@@ -210,7 +210,7 @@ When the mouse is clicked the `onMouseDown` callback attaches an event listener 
 
 To make it work on mobile we need to intercept the touch events.
 
-```typescript 
+```typescript
 const Knob: React.FC<KnobProps> = ({ label, onChange, value: inputValue, step, min, max }) => {
   [...]
 
