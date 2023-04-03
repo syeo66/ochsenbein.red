@@ -25,8 +25,19 @@ I think this might lead to a decline of artistic and creativ work. There is simp
 
 As we have seen the flood of generated content will drown the work of skilled people, AIs will be trained by generated content and artist have less incentives to hone their skills. So, we will see a slow decline of creativity and knowledge.
 
+## Privacy and international laws
+
+On March 31st of 2023 (a few days ago) Italy banned ChatGPT and OpenAI was forced to geoblock users from Italy. Italy claiming OpenAI would not comply with GDPR, EUs privacy and data protection law. GDPR requires anyone providing a service in the EU to ensure certain things. Amongst others anyone has the right to have any data about them to be deleted or corrected. 
+
+Now, when you understand how a large language model is trained it quickly gets obvious this is not a small thing to do. How do you delete data in a model which basically is a black box? How do you correct specific data? And if the model is just hallucinating facts about you, how can these be corrected? The same questions pop up when think about pictures of existing people. There is a privacy rights like the right to one's own image.
+
+These questions will be very important. I'm not entirely convinced Italys step was the right one, but I am absolutely certain these are things need to be addressed.
+
 ## To AGI or not to AGI
 
+With the release of GPT-4 the discussion of AGI got more into the picture. AGI is the idea of an AI displaying actual intelligence enabling it to do intellectual task across a wide range of domains and context without having to specifically program or train for each task. It's a so called emergent behaviour.
+
 ### Human level AI
+
 
 ### Non-human AGI
