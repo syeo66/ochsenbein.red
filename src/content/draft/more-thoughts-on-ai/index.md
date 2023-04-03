@@ -44,3 +44,11 @@ Some people are interested in getting to human level AI. This means that the AI 
 ### Non-human AGI
 
 The other possibility is that AGI might not require to be human level. But then the AI might be closer to any alien species than to humans. If this is the case how would we ever be able to make sure the AIs goals are aligned with ours? This opens up a whole new set of challenges and dangers known as the alignment problem.
+
+### Consciousness
+
+Another thing to consider is if those models actually could get conscious. How would we be able to determine consciousness in such a model? How would we have to treat it if we only would have to suspect it has some sort of consciousness? Wouldn't morality and even the law not have to extend to machines then. (Well, to be fair, we, as humans, are already pretty bad treating animals).
+
+## Final words 
+
+Those are only a few - rather chaotic - thoughts on AI. We do not know what the future will bring. But I'm pretty sure we need to do better than we do today when it comes to AI safety, ethics, social impact and similar fields.
