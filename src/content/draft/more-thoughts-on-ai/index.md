@@ -1,6 +1,6 @@
 ---
 title: 'More thoughts on the state of AI'
-date: '2023-03-31T11:15:00.000Z'
+date: '2023-04-03T11:15:00.000Z'
 description: 'So, the cat is out of the bag and we learn more and more. But still we do not know where everything will lead to.'
 devTo: 'https://dev.to/syeo66/thoughts-on-the-current-state-of-ai-322f'
 ---
@@ -35,9 +35,12 @@ These questions will be very important. I'm not entirely convinced Italys step w
 
 ## To AGI or not to AGI
 
-With the release of GPT-4 the discussion of AGI got more into the picture. AGI is the idea of an AI displaying actual intelligence enabling it to do intellectual task across a wide range of domains and context without having to specifically program or train for each task. It's a so called emergent behaviour.
+With the release of GPT-4 the discussion of AGI got more into the picture. AGI is the idea of an AI displaying actual intelligence enabling it to do intellectual task across a wide range of domains and context without having to specifically program or train for each task. It's a so called emergent behaviour. 
 
 ### Human level AI
 
+Some people are interested in getting to human level AI. This means that the AI should be able to the same coginitive tasks as a human. I am thinking that maybe nature already found the most efficient way to do this: The human. If we assume that it actually might be the human 'flaws' like having to sleep, biases and imperfect perception are a requirement for human level intelligence. If this would turn out to be true, then what is the point of building the same again? At this point we simply don't know and to be sure, we really want to find out.
 
 ### Non-human AGI
+
+The other possibility is that AGI might not require to be human level. But then the AI might be closer to any alien species than to humans. If this is the case how would we ever be able to make sure the AIs goals are aligned with ours? This opens up a whole new set of challenges and dangers known as the alignment problem.
