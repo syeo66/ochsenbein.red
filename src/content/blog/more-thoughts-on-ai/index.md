@@ -2,7 +2,7 @@
 title: 'More thoughts on the state of AI'
 date: '2023-04-04T11:15:00.000Z'
 description: 'So, the cat is out of the bag and we learn more and more. But still we do not know where everything will lead to.'
-devTo: 'https://ochsenbein.red/more-thoughts-on-ai/'
+devTo: 'https://dev.to/syeo66/more-thoughts-on-the-state-of-ai-46in'
 ---
 
 I recently wrote an [article](https://ochsenbein.red/musings-on-ai/) with my thoughts on the state of AI. Little did I know about the flurry of developments we would face in only a few days. We are now at a point where high-profile people are asking to pause and think. And I am sure we should pause and think. Does this mean we should stop the development? It's not even a question: The cat is out of the bag - there is no stopping now. What we should do is increase the efforts in the fields of AI safety, ethics, social development, and the definition of human work... by a lot.
