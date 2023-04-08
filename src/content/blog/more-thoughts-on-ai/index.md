@@ -15,7 +15,7 @@ Anyways, here are some thoughts keeping my brain busy lately.
 
 AIs help us to create content at a way faster pace. Even without any training, you can put out texts, images and other things which a few years ago would have needed quite some skills. Now those things are available with a click of a button. Sure, someone might argue skills are still important and that being able to build on the AI's output will lead to better results from experts. Even if this is true (I will discuss this a bit more in-depth below) the big problem will be to find the 'diamonds' within the noise. Not only is there more content burying the great content, but the noise is also louder. In many cases, it takes an expert to be even able to discern the good from the not-so-good stuff.
 
-Just recently Github Copilot X was presented and on their site, it was stated that 46% of code is already created by Copilot (I am not sure about that number, but let's just run with it). The same will probably happen with the flood of generated images and texts. Bots just creating websites with the help
+Just recently Github Copilot X was presented and on their site, it was stated that 46% of code is already created by Copilot (I am not sure about that number, but let's just run with it). The same will probably happen with the flood of generated images and texts. Bots just creating websites with the help of GPT-4 for SEO reasons are probably already at work. If we extrapolate this development it's easy to see that in a not too far future we will basically train the models with 99% AI generated content. This might lead to whole bunch of problems down the line like even further bias amplification and similar things.
 
 ## Killing creativity and knowledge
 
