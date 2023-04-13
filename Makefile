@@ -22,6 +22,7 @@ start: develop
 serve: build
 	${GATSBY} serve
 
+.PHONY: deploy
 deploy: node_modules
 	git switch main && git push all && git push
 	git switch stage && git pull && git merge main && git push all && git push
