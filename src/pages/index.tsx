@@ -18,9 +18,6 @@ const IndexPage: React.FC = () => (
       <li>🌱 Vegan</li>
       <li>🚀 In love with rockets and space</li>
       <li>📓 neovim &gt; VSC</li>
-      <li>
-        <strong>λ</strong> I prefer FP over OOP, but whatever gets the job done.
-      </li>
     </ul>
   </Layout>
 )
