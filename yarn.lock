@@ -1150,10 +1150,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.41.0.tgz#080321c3b68253522f7646b55b577dd99d2950b3"
   integrity sha512-LxcyMGxwmTh2lY9FwHPGWOHmYFCZvbrFCBZL4FzSSsxsRPuhrYUg/49/0KDfW8tnIEaEHtfmn6+NPN+1DqaNmA==
 
-"@fontsource/alegreya-sans@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/alegreya-sans/-/alegreya-sans-4.5.11.tgz#ac0ad304fa731ed506270e7ad25cf929fa09ee40"
-  integrity sha512-7J1Csa429q0FHIhFFQb5uVuYmjBEY4D/X2lupTtTEb0lwQmsa4wAWWvKgLHVGWEGmNBGFxRvzaGI4+aW7HZI0g==
+"@fontsource/alegreya-sans@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/alegreya-sans/-/alegreya-sans-5.0.0.tgz#7d28858bf3761b127030dcb715f5ce69c9f391e5"
+  integrity sha512-qTp1rMsZAa1COzaVWM41upSnHSuj0SXKvYNXKOGkSmTBJGyG2FMQY/OvBGtOwwVxvkJMUJ65yzleKW/ZDjdZTQ==
 
 "@fontsource/poppins@^4.5.10":
   version "4.5.10"
