@@ -6,8 +6,8 @@
   "author": "Red Ochsenbein <red@redochsenbein.ch>",
   "dependencies": {
     "@fontsource/alegreya-sans": "^5.0.0",
-    "@fontsource/poppins": "^4.5.10",
-    "@fontsource/spinnaker": "^4.5.9",
+    "@fontsource/poppins": "^5.0.2",
+    "@fontsource/spinnaker": "^5.0.2",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",

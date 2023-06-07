@@ -1252,15 +1252,15 @@
   resolved "https://registry.yarnpkg.com/@fontsource/alegreya-sans/-/alegreya-sans-5.0.2.tgz#0aa6550a47f1b7cb7dca2f60b98b4689c1e633b1"
   integrity sha512-U9yjDXnDhMvgT3HavoLdjBgkRX3eK/vkvfWFw5GGan2Xuu6X56mMk14IBXEaN/TQuFHhtRX0ZYCgHDDhLuSb2A==
 
-"@fontsource/poppins@^4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-4.5.10.tgz#44dbfeacb5d89efca5ad7ad6cc941b2ac1ee424b"
-  integrity sha512-oYZVHsnlwV3VWM1SE/m6SUxVh0QLk5+2wB+lBiXcI7N/0KVQWmV9YykaPqfJHBLvmdya+MAOnv+BQHeLU1vOOw==
+"@fontsource/poppins@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.2.tgz#0f06a1adb3f8584114818e7c21a7d480450dae7c"
+  integrity sha512-504RESq2qbyVxxpjP2TyVQODOWakuBHBD3AtYurtmNHosC4x+mjyOlRSdW2QjsILezlwFCnLkYuGUzYiV44sEg==
 
-"@fontsource/spinnaker@^4.5.9":
-  version "4.5.9"
-  resolved "https://registry.yarnpkg.com/@fontsource/spinnaker/-/spinnaker-4.5.9.tgz#5811777370618b502a7c1e5ab47cfcf57cec5a79"
-  integrity sha512-LoGtbHfuTDm17Fo558ek+QNuhxlyRBg6Til7sWF7lHiZqR7gw/tgsjz/D63GY1uJXi0ouEA1YjOrGaiBbNHbjA==
+"@fontsource/spinnaker@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/spinnaker/-/spinnaker-5.0.2.tgz#b5d8134f6d6f3dcbd033d731ab21b138b53b6e21"
+  integrity sha512-caEW2zGI0Fx1GsKYigCo0DP0+giSfpccDEry5wc4Z2br2zvcQxh/0tQlVme2qT8H7SRF3x+MpfcOqdnTZhMJqA==
 
 "@fortawesome/fontawesome-common-types@6.4.0":
   version "6.4.0"
