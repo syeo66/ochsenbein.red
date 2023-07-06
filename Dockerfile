@@ -7,6 +7,8 @@ RUN yarn
 COPY . .
 RUN make build
 
+RUN find /usr/src/app/public -type f -exec chmod 644 {} \;
+
 FROM nginx as server
 
 EXPOSE 80
