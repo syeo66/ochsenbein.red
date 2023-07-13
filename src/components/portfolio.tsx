@@ -30,14 +30,14 @@ export const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
         ? `
     left:0;
     transform: translateX(-101%) scale(0.6);
-    :hover {
+    &:hover {
       transform: translateX(-101%) scale(1) rotateZ(10deg);
     }
   `
         : `
     right: 0;
     transform: translateX(101%) scale(0.6);
-    :hover {
+    &:hover {
       transform: translateX(101%) scale(1) rotateZ(-10deg);
     }
   `}

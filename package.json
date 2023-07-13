@@ -13,7 +13,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react-helmet": "^6.1.5",
-    "@types/styled-components": "^5.1.7",
     "@types/three": "^0.154.0",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^5.0.0",
@@ -39,7 +38,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.3.3",
+    "styled-components": "^6.0.0",
+    "stylis": "^4.0.0",
     "three": "^0.154.0"
   },
   "devDependencies": {
