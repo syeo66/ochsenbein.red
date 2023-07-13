@@ -1,6 +1,6 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
@@ -21,9 +21,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <Header>
           <BlogHeading itemProp="headline">{post.frontmatter.title}</BlogHeading>
           <Meta>
-            <BlogDate role="time">
-              {post.frontmatter.date}
-            </BlogDate>
+            <BlogDate role="time">{post.frontmatter.date}</BlogDate>
             {post.frontmatter.devTo && <DevTo href={post.frontmatter.devTo}>Read and comment at dev.to</DevTo>}
           </Meta>
         </Header>
@@ -68,7 +66,16 @@ const BlogHeading = styled.h2`
 `
 const BlogDate = styled.div`
   display: block;
-  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+  font-family:
+    'Spinnaker',
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans;
   margin-right: 1rem;
   white-space: nowrap;
 `
@@ -84,8 +91,19 @@ const BlogBody = styled.section`
   }
 
   h3 {
-    font-family: 'Algereya Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-      Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family:
+      'Algereya Sans',
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      Fira Sans,
+      Droid Sans,
+      Helvetica Neue,
+      sans-serif;
     font-weight: normal;
     font-size: 1.3rem;
     margin-bottom: 0.75rem;

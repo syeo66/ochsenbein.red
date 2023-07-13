@@ -20,7 +20,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'no-empty': 'error',
     'no-else-return': 'error',
-    'no-shadow': 'error',
+    'no-shadow': 'off',
     'sort-vars': 'off',
     'prefer-destructuring': 'error',
     'simple-import-sort/exports': 'error',

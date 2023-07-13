@@ -1,6 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React, { useEffect, useRef, useState, PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+
 import { BreakPoint } from '../design-tokens'
 
 interface EntryContainerProps {
@@ -92,7 +93,7 @@ const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
 
   useEffect(() => {
     setWidth(entryRef.current?.offsetWidth || 0)
-  }, [entryRef.current])
+  }, [])
 
   return (
     <EntryContainer
@@ -106,7 +107,7 @@ const PortfolioEntry: React.FC<PortfolioEntryProps> = ({
       <EntryHeading>{name}</EntryHeading>
       <EntryBody>{short}</EntryBody>
       {website && (
-        <a href={website} target="_blank" rel="noopener">
+        <a href={website} target="_blank" rel="noopener noreferrer">
           {website}
         </a>
       )}

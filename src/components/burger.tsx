@@ -6,7 +6,9 @@ const Line = styled.div`
   height: 5px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3rem;
-  transition: transform 500ms, opacity 500ms;
+  transition:
+    transform 500ms,
+    opacity 500ms;
   transform-origin: calc(100% - 0.15rem) 0.15rem;
 
   &.hidden {

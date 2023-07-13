@@ -42,7 +42,9 @@ export const PortfolioControl = styled(FontAwesomeIcon)<PortfolioControlProps>`
     }
   `}
     cursor: pointer;
-    transition: transform 400ms, opacity 1s;
+    transition:
+      transform 400ms,
+      opacity 1s;
     opacity: ${({ hidden }) => (hidden ? 0 : 1)};
   }
 `
@@ -95,7 +97,7 @@ export const PortfolioInner: React.FC<PropsWithChildren<PortfolioInnerProps>> = 
       max = Math.max(max, node?.offsetHeight || 0)
     }
     setHeight(max + 30)
-  }, [entryRef.current])
+  }, [])
 
   return (
     <PortfolioScene height={height}>

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import {
-  Scene,
-  PerspectiveCamera,
-  WebGLRenderer,
   BoxGeometry,
   EdgesGeometry,
-  LineSegments,
   LineBasicMaterial,
+  LineSegments,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
 } from 'three'
 
 interface RotatingCubeProps {
@@ -46,7 +46,7 @@ const RotatingCube: React.FC<RotatingCubeProps> = ({ size, className }) => {
       renderer.render(scene, camera)
     }
     animate()
-  }, [])
+  }, [size])
 
   return <canvas width={size} height={size} ref={canvasRef} className={className} />
 }

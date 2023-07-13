@@ -1,12 +1,12 @@
-import React, { useCallback, useState, lazy, Suspense } from 'react'
-import styled from 'styled-components'
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { graphql, useStaticQuery } from 'gatsby'
+import React, { lazy, Suspense, useCallback, useState } from 'react'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import Portfolio, { PortfolioControl, PortfolioInner } from '../components/portfolio'
 import PortfolioEntry from '../components/portfolioEntry'
+import SEO from '../components/seo'
 
 const RotatingCube = lazy(() => import('../components/rotatingCube'))
 

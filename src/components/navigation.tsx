@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { BreakPoint } from '../design-tokens'
 
+import { BreakPoint } from '../design-tokens'
 import Burger from './burger'
 import SocialIcons from './socialIcons'
 
@@ -20,7 +20,9 @@ const Nav = styled.nav`
   }
   flex-direction: column;
   transform: translateX(calc(-100% + 3.5rem));
-  transition: transform 500ms, background-color 100ms;
+  transition:
+    transform 500ms,
+    background-color 100ms;
   padding-right: 10%;
   z-index: 9999;
 
@@ -30,7 +32,10 @@ const Nav = styled.nav`
     transform: translateX(0);
     animation: slideInFromLeft 500ms ease-out 0 1;
     padding-right: 0;
-    box-shadow: 0 0 70px rgba(120, 10, 10, 0.1), 0 0 40px rgba(120, 10, 10, 0.2), 0 0 20px rgba(120, 10, 10, 0.3);
+    box-shadow:
+      0 0 70px rgba(120, 10, 10, 0.1),
+      0 0 40px rgba(120, 10, 10, 0.2),
+      0 0 20px rgba(120, 10, 10, 0.3);
     border-right: 1px solid rgba(120, 10, 10, 0.3);
 
     @keyframes slideInFromLeft {
@@ -46,8 +51,19 @@ const Nav = styled.nav`
 const NavLink = styled(Link)`
   display: block;
   padding: 2rem;
-  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-    Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    'Spinnaker',
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   text-decoration: none;
   font-weight: normal;
   font-size: clamp(2rem, calc(100vw / 9), 2.5rem);

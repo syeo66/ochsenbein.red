@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { graphql, useStaticQuery } from 'gatsby'
+import React, { useCallback, useState } from 'react'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import Portfolio, { PortfolioControl, PortfolioInner } from '../components/portfolio'
 import PortfolioEntry from '../components/portfolioEntry'
+import SEO from '../components/seo'
 
 interface WorkEntry {
   node: {

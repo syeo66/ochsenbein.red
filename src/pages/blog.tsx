@@ -1,6 +1,6 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
@@ -69,7 +69,16 @@ const BlogEntry = styled.li`
   padding-bottom: 1rem;
 `
 const BlogDate = styled.small`
-  font-family: 'Spinnaker', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans;
+  font-family:
+    'Spinnaker',
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans;
 `
 
 const BlogHeading = styled.h2`
